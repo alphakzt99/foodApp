@@ -99,14 +99,25 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
                   ],
                 ),
               ),
-              TabBarView(controller: controller, children: [
-                TabBar(isScrollable: true, tabs: [
+              DefaultTabController( 
+                length: items.length,
+                child: 
+               
+                TabBar(isScrollable: true, 
+                controller: controller,
+                tabs: [
                   Tab(
                     icon: Icon(items[0]),
                   ),
                   Tab(icon: Icon(items[0])),
+                  Tab(icon: Icon(items[0])),
+                  Tab(icon: Icon(items[0])),
+                  Tab(icon: Icon(items[0])),
+                  Tab(icon: Icon(items[0])),
+                  Tab(icon: Icon(items[0])),
+                  Tab(icon: Icon(items[0])),
                 ])
-              ])
+              )
             ],
           ),
         ),
