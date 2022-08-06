@@ -9,10 +9,10 @@ class Explore extends StatefulWidget {
   State<Explore> createState() => _ExploreState();
 }
 
-class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin{
+class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
   List items = [
-    MyFlutterApp.hamburger, 
-    MyFlutterApp.cheese, 
+    MyFlutterApp.hamburger,
+    MyFlutterApp.cheese,
     MyFlutterApp.bread_slice,
     MyFlutterApp.hotdog,
     MyFlutterApp.ice_cream,
@@ -20,7 +20,8 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin{
     MyFlutterApp.pizza_slice,
     MyFlutterApp.pepper_hot
   ];
-  late final TabController controller = TabController(length: items.length, vsync: this);
+  late final TabController controller =
+      TabController(length: items.length, vsync: this);
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -98,11 +99,14 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin{
                   ],
                 ),
               ),
-              TabBarView(
-                controller: controller,
-                children: [TabBar(
-                  isScrollable: true,
-                  tabs: [Tab(icon: items[],)])])
+              TabBarView(controller: controller, children: [
+                TabBar(isScrollable: true, tabs: [
+                  Tab(
+                    icon: Icon(items[0]),
+                  ),
+                  Tab(icon: Icon(items[0])),
+                ])
+              ])
             ],
           ),
         ),
