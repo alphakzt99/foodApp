@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:food_app/Login_Page.dart';
+import 'package:food_app/models/SignUpLogin/login_page.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
 
 class SignUp extends StatefulWidget {
@@ -18,7 +18,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-   
+
     textfield(String text, Icon icon, TextInputType text1) {
       return TextField(
           cursorColor: Theme.of(context).primaryColorDark,
@@ -112,15 +112,17 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
           ),
         ],
         leading: Container(
-          margin: EdgeInsets.symmetric(vertical: 12,horizontal: 10),
+          margin: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
           // ignore: prefer_const_literals_to_create_immutables
-          child:  IconButton(
-            padding: EdgeInsets.only(left: 8),
-                onPressed: () => Navigator.pop(context),
-                icon: Icon(Icons.arrow_back_ios,color: Theme.of(context).backgroundColor,)),
-          ),
+          child: IconButton(
+              padding: EdgeInsets.only(left: 8),
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Theme.of(context).backgroundColor,
+              )),
         ),
-      
+      ),
       backgroundColor: Theme.of(context).backgroundColor,
       body: SingleChildScrollView(
         child: Column(
@@ -221,36 +223,54 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                   Row(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 15),
+                                        padding:
+                                            const EdgeInsets.only(left: 15),
                                         child: MaterialButton(
+                                            minWidth: size.width * 0.1,
+                                            shape: CircleBorder(
+                                                side: BorderSide(
+                                                    color: Theme.of(context)
+                                                        .primaryColor)),
+                                            onPressed: () {},
+                                            child: Icon(
+                                              MyFlutterApp.facebook,
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                              size: 20,
+                                            )),
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      MaterialButton(
                                           minWidth: size.width * 0.1,
                                           shape: CircleBorder(
                                               side: BorderSide(
                                                   color: Theme.of(context)
                                                       .primaryColor)),
                                           onPressed: () {},
-                                          child: Icon(MyFlutterApp.facebook,color: Theme.of(context).primaryColor,size: 20,)
-                                        ),
+                                          child: Icon(
+                                            MyFlutterApp.google,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            size: 20,
+                                          )),
+                                      SizedBox(
+                                        width: 20,
                                       ),
-                                      SizedBox(width: 20,),
                                       MaterialButton(
-                                        minWidth: size.width * 0.1,
-                                        shape: CircleBorder(
-                                            side: BorderSide(
-                                                color: Theme.of(context)
-                                                    .primaryColor)),
-                                        onPressed: () {},
-                                        child: Icon(MyFlutterApp.google,color: Theme.of(context).primaryColor,size: 20,)
-                                      ),
-                                      SizedBox(width: 20,),
-                                      MaterialButton(
-                                        minWidth: size.width * 0.1,
-                                        shape: CircleBorder(
-                                            side: BorderSide(
-                                                color: Theme.of(context).primaryColor)),
-                                        onPressed: () {},
-                                        child: Icon(MyFlutterApp.twitter,color: Theme.of(context).primaryColor,size: 20,)
-                                      ),
+                                          minWidth: size.width * 0.1,
+                                          shape: CircleBorder(
+                                              side: BorderSide(
+                                                  color: Theme.of(context)
+                                                      .primaryColor)),
+                                          onPressed: () {},
+                                          child: Icon(
+                                            MyFlutterApp.twitter,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            size: 20,
+                                          )),
                                     ],
                                   ),
                                   Padding(
@@ -332,7 +352,8 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                                   color: Theme.of(context)
                                                       .primaryColorDark),
                                               recognizer: TapGestureRecognizer()
-                                                ..onTap = () => _controller.index = 1)
+                                                ..onTap =
+                                                    () => _controller.index = 1)
                                         ]))
                                       ],
                                     ),

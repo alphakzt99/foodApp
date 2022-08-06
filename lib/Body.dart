@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:food_app/models/explore.dart';
-import 'package:food_app/models/signUp.dart';
+import 'package:food_app/models/Explore/explore.dart';
+import 'package:food_app/models/SignUpLogin/signUp.dart';
 
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
