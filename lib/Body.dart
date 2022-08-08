@@ -1,8 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:food_app/models/Explore/explore.dart';
 import 'package:food_app/models/SignUpLogin/signUp.dart';
+=======
+import 'package:food_app/models/signUp.dart';
+>>>>>>> 43a5b1c1c51195c4f2ed37c05f2d2b8900f8dc38
 
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
@@ -92,13 +96,17 @@ class _BodyState extends State<Body> {
             child: Column(
               children: [
                 OutlinedButton(
+<<<<<<< HEAD
                   onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> Explore())),
+=======
+>>>>>>> 43a5b1c1c51195c4f2ed37c05f2d2b8900f8dc38
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       )),
                       padding: MaterialStateProperty.all(EdgeInsets.symmetric(
                           vertical: size.width * 0.03,
+<<<<<<< HEAD
                           horizontal: size.width * 0.28)),
                       backgroundColor: MaterialStateProperty.all(
                           Theme.of(context).primaryColorDark),
@@ -107,6 +115,19 @@ class _BodyState extends State<Body> {
                     child: Text("Explore",
                         style: TextStyle(
                             fontFamily: "RobotoSlab",
+=======
+                          horizontal: size.width * 0.25)),
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).primaryColorDark),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => SignUp()));
+                    },
+                    child: Text("Get Started",
+                        style: TextStyle(
+                            fontFamily: "Tiro Kannada",
+>>>>>>> 43a5b1c1c51195c4f2ed37c05f2d2b8900f8dc38
                             color: Theme.of(context).backgroundColor,
                             fontSize: 20,
                             fontWeight: FontWeight.bold))),
@@ -121,6 +142,7 @@ class _BodyState extends State<Body> {
                       )),
                       padding: MaterialStateProperty.all(EdgeInsets.symmetric(
                           vertical: size.width * 0.03,
+<<<<<<< HEAD
                           horizontal: size.width * 0.3)),
                       backgroundColor: MaterialStateProperty.all(
                           Theme.of(context).backgroundColor),
@@ -133,6 +155,17 @@ class _BodyState extends State<Body> {
                       "Login",
                       style: TextStyle(
                         fontFamily: "RobotoSlab",
+=======
+                          horizontal: size.width * 0.31)),
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).backgroundColor),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        fontFamily: "Tiro Kannada",
+>>>>>>> 43a5b1c1c51195c4f2ed37c05f2d2b8900f8dc38
                           color: Theme.of(context).primaryColorDark,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
