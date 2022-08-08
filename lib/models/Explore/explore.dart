@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/models/Explore/Tab1.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
-import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
+
 
 class Explore extends StatefulWidget {
   Explore({Key? key}) : super(key: key);

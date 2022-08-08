@@ -1,12 +1,9 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
+
 import 'package:food_app/models/Explore/explore.dart';
+
 import 'package:food_app/models/SignUpLogin/signUp.dart';
-=======
-import 'package:food_app/models/signUp.dart';
->>>>>>> 43a5b1c1c51195c4f2ed37c05f2d2b8900f8dc38
+
 
 class Body extends StatefulWidget {
   Body({Key? key}) : super(key: key);
@@ -20,168 +17,137 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      height: size.height,
-      color: Theme.of(context).backgroundColor,
-      child: Column(children: [
-        Stack(
-          children: [
-            
-            RichText(
-                text: TextSpan(
-                    style: TextStyle(
-         
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).primaryColor),
-                    children: [
-                  TextSpan(text: '''The Fastest Delivery
+        height: size.height,
+        color: Theme.of(context).backgroundColor,
+        child: Column(children: [
+          Stack(
+            children: [
+              RichText(
+                  text: TextSpan(
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).primaryColor),
+                      children: [
+                    TextSpan(text: '''The Fastest Delivery
                                     in'''),
-                  TextSpan(
-                      text: " Your City",
-                      style:
-                          TextStyle(color: Theme.of(context).primaryColorDark))
-                ]))
-          ],
-        ),
-        SizedBox(
-          width: size.height * 0.09,
-          
-        ),
-        Stack(children: [
-          Positioned(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: size.height * 0.27,
-                ),
-                Center(
-                  child: ClipPath(
-                    clipper: BackgroundClipper(),
-                    child: Container(
-                      width: size.width * 0.9,
-                      height: size.height * 0.5,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
+                    TextSpan(
+                        text: " Your City",
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColorDark))
+                  ]))
+            ],
+          ),
+          SizedBox(
+            width: size.height * 0.09,
+          ),
+          Stack(
+            children: [
+              Positioned(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: size.height * 0.27,
+                    ),
+                    Center(
+                      child: ClipPath(
+                        clipper: BackgroundClipper(),
+                        child: Container(
+                          width: size.width * 0.9,
+                          height: size.height * 0.5,
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          Positioned(
-            height: size.height * 0.5,
-            top: size.height * 0.5,
-            left: size.width * 0.21,
-            child: RichText(
-                text: TextSpan(
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).backgroundColor),
-                    children: [
-                  TextSpan(text: "Hungry? "),
-                  TextSpan(
-                      text: "Let's Order!",
-                      style:
-                          TextStyle(
-                            
-                            color: Theme.of(context).primaryColorLight))
-                ])),
-          ),
-          Positioned(
-            height: size.height * 0.6,
-            width: size.width,
-            top: size.height * 0.57,
-            child: Column(
-              children: [
-                OutlinedButton(
-<<<<<<< HEAD
-                  onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> Explore())),
-=======
->>>>>>> 43a5b1c1c51195c4f2ed37c05f2d2b8900f8dc38
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      )),
-                      padding: MaterialStateProperty.all(EdgeInsets.symmetric(
-                          vertical: size.width * 0.03,
-<<<<<<< HEAD
-                          horizontal: size.width * 0.28)),
-                      backgroundColor: MaterialStateProperty.all(
-                          Theme.of(context).primaryColorDark),
-                    ),
-                   
-                    child: Text("Explore",
+              ),
+              Positioned(
+                top: size.height * 0.15,
+                left: size.width * 0.05,
+                width: size.width * 0.9,
+                child: Image.asset('lib/assets/junk.png')
+              ),
+              Positioned(
+                height: size.height * 0.5,
+                top: size.height * 0.5,
+                left: size.width * 0.21,
+                child: RichText(
+                    text: TextSpan(
                         style: TextStyle(
-                            fontFamily: "RobotoSlab",
-=======
-                          horizontal: size.width * 0.25)),
-                      backgroundColor: MaterialStateProperty.all(
-                          Theme.of(context).primaryColorDark),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => SignUp()));
-                    },
-                    child: Text("Get Started",
-                        style: TextStyle(
-                            fontFamily: "Tiro Kannada",
->>>>>>> 43a5b1c1c51195c4f2ed37c05f2d2b8900f8dc38
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).backgroundColor),
+                        children: [
+                      TextSpan(text: "Hungry? "),
+                      TextSpan(
+                          text: "Let's Order!",
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColorLight))
+                    ])),
+              ),
+              Positioned(
+                  height: size.height * 0.6,
+                  width: size.width,
+                  top: size.height * 0.57,
+                  child: Column(children: [
+                    OutlinedButton(
+                        onPressed: () => Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Explore())),
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          )),
+                          padding: MaterialStateProperty.all(
+                              EdgeInsets.symmetric(
+                                  vertical: size.width * 0.04,
+                                  horizontal: size.width * 0.28)),
+                          backgroundColor: MaterialStateProperty.all(
+                              Theme.of(context).primaryColorDark),
+                        ),
+                        child: Text(
+                          "Explore",
+                          style: TextStyle(
                             color: Theme.of(context).backgroundColor,
+                            fontFamily: "RobotoSlab",
                             fontSize: 20,
-                            fontWeight: FontWeight.bold))),
-                SizedBox(
-                  height: size.height * 0.01,
-                ),
-                OutlinedButton(
-                    style: ButtonStyle(
-                    
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      )),
-                      padding: MaterialStateProperty.all(EdgeInsets.symmetric(
-                          vertical: size.width * 0.03,
-<<<<<<< HEAD
-                          horizontal: size.width * 0.3)),
-                      backgroundColor: MaterialStateProperty.all(
-                          Theme.of(context).backgroundColor),
+                            fontWeight: FontWeight.bold
+                          ),
+                        )),
+                    SizedBox(
+                      height: size.height * 0.01,
                     ),
-                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => SignUp()));
-                    },
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        fontFamily: "RobotoSlab",
-=======
-                          horizontal: size.width * 0.31)),
-                      backgroundColor: MaterialStateProperty.all(
-                          Theme.of(context).backgroundColor),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        fontFamily: "Tiro Kannada",
->>>>>>> 43a5b1c1c51195c4f2ed37c05f2d2b8900f8dc38
-                          color: Theme.of(context).primaryColorDark,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ))
-              ],
-            ),
+                    OutlinedButton(
+                        onPressed: () => Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignUp())),
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          )),
+                          padding: MaterialStateProperty.all(
+                              EdgeInsets.symmetric(
+                                  vertical: size.width * 0.04,
+                                  horizontal: size.width * 0.24)),
+                          backgroundColor: MaterialStateProperty.all(
+                              Theme.of(context).backgroundColor),
+                        ),
+                        child: Text(
+                          "Get Started",
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontFamily: "RobotoSlab",
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold
+                          ),
+                        )),
+                  ]))
+            ],
           ),
-          Positioned(
-              height: size.height * 0.6,
-              width: size.width * 0.9,
-              left: size.width * 0.05,
-              bottom: size.height * 0.17,
-              child: Image.asset('lib/assets/junk.png')),
-        ]),
-      ]),
-    );
+        ]));
   }
 }
 
