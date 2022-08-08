@@ -53,7 +53,6 @@ class _LoginState extends State<Login> {
             child: Text(
               "Welcome Back",
               style: TextStyle(
-                  fontFamily: 'Roboto',
                   color: Theme.of(context).primaryColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 25),
@@ -67,7 +66,6 @@ class _LoginState extends State<Login> {
             child: Text(
               "Login to fill your tummy quickly",
               style: TextStyle(
-                  fontFamily: 'Roboto',
                   color: Colors.black87,
                   fontWeight: FontWeight.w300,
                   fontSize: 15),
@@ -172,7 +170,6 @@ class _LoginState extends State<Login> {
                       child: Text(
                         '  Login  ',
                         style: TextStyle(
-                            fontFamily: "Tiro Kannada",
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).backgroundColor),

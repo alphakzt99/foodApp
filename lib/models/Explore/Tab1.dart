@@ -1,11 +1,9 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:food_app/my_flutter_app_icons.dart';
 
 class Tab1 extends StatefulWidget {
-  List items = [];
-  late int num;
-  Tab1({Key? key, required items, required num}) : super(key: key);
+  IconData number;
+  Tab1({Key? key, required this.number}) : super(key: key);
 
   @override
   State<Tab1> createState() => _Tab1State();
@@ -22,7 +20,7 @@ class _Tab1State extends State<Tab1> {
           color: Theme.of(context).primaryColor),
       child: Tab(
         icon: Icon(
-          widget.items[widget.num],
+          widget.number,
           color: Theme.of(context).backgroundColor,
         ),
       ),
@@ -31,11 +29,11 @@ class _Tab1State extends State<Tab1> {
 }
 
 class Tab2 extends StatefulWidget {
-  List items = [];
-  String text = '';
-  late int num;
-  late double width;
-  Tab2({Key? key, required items, required num, required text, required width})
+  String text;
+  IconData number;
+  double width;
+  Tab2(
+      {Key? key, required this.number,required this.text,required this.width})
       : super(key: key);
 
   @override
@@ -58,7 +56,7 @@ class _Tab2State extends State<Tab2> {
             padding: const EdgeInsets.all(8.0),
             child: Tab(
               icon: Icon(
-                widget.items[widget.num],
+                widget.number,
                 color: Theme.of(context).primaryColor,
               ),
             ),

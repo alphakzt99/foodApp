@@ -106,7 +106,7 @@ class _BodyState extends State<Body> {
                    
                     child: Text("Explore",
                         style: TextStyle(
-                            fontFamily: "Tiro Kannada",
+                            fontFamily: "RobotoSlab",
                             color: Theme.of(context).backgroundColor,
                             fontSize: 20,
                             fontWeight: FontWeight.bold))),
@@ -132,7 +132,7 @@ class _BodyState extends State<Body> {
                     child: Text(
                       "Login",
                       style: TextStyle(
-                        fontFamily: "Tiro Kannada",
+                        fontFamily: "RobotoSlab",
                           color: Theme.of(context).primaryColorDark,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),

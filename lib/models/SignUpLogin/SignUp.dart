@@ -102,7 +102,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                   child: Text(
                     "Need Some Help?",
                     style: TextStyle(
-                        fontFamily: 'Roboto',
+                        
                         color: Theme.of(context).backgroundColor,
                         fontWeight: FontWeight.bold),
                   ),
@@ -200,7 +200,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                     child: Text(
                                       "Getting started",
                                       style: TextStyle(
-                                          fontFamily: 'Roboto',
+                                         
                                           color: Theme.of(context).primaryColor,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 25),
@@ -214,7 +214,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                     child: Text(
                                       "Create account to continue!",
                                       style: TextStyle(
-                                          fontFamily: 'Roboto',
+                                          
                                           color: Colors.black87,
                                           fontWeight: FontWeight.w300,
                                           fontSize: 15),
@@ -329,7 +329,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                               child: Text(
                                                 'Sign Up',
                                                 style: TextStyle(
-                                                    fontFamily: "Tiro Kannada",
+                                                    
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.bold,
                                                     color: Theme.of(context)
