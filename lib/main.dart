@@ -17,7 +17,7 @@ class FoodApp extends StatelessWidget {
           primaryColorLight: Color(0xFFFFC529),
           primaryColor: Color(0xFF272D2F),
           primaryColorDark: Color(0xFFFE724C),
-
+          shadowColor: Colors.black12,
           fontFamily: 'RobotoSlab',
         ),
         home: Home());

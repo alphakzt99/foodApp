@@ -13,15 +13,17 @@ class _Tab1State extends State<Tab1> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 20),
       width: 70,
-      height: 40,
+      height: 100,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: Theme.of(context).primaryColor),
+        boxShadow: [BoxShadow(offset: Offset(5,5),blurRadius: 5,color: Theme.of(context).shadowColor),],
+          borderRadius: BorderRadius.circular(20),
+          color: Theme.of(context).primaryColorLight),
       child: Tab(
         icon: Icon(
           widget.number,
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).primaryColor,
         ),
       ),
     );
@@ -44,16 +46,19 @@ class _Tab2State extends State<Tab2> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
-          border: Border.all(color: Theme.of(context).primaryColor),
-          borderRadius: BorderRadius.circular(40)),
+        color: Theme.of(context).backgroundColor,
+        boxShadow: [BoxShadow(offset: Offset(5,5),blurRadius: 5,color: Theme.of(context).shadowColor),],
+          border: Border.all(color: Theme.of(context).backgroundColor),
+          borderRadius: BorderRadius.circular(20)),
       width: widget.width,
-      height: 40,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      height: 100,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
             child: Tab(
               icon: Icon(
                 widget.number,
@@ -62,7 +67,7 @@ class _Tab2State extends State<Tab2> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Text(widget.text,
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,

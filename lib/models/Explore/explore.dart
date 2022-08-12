@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/models/Explore/Tab1.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
-
+import 'package:food_app/my_flutter_app_icons1.dart';
 
 class Explore extends StatefulWidget {
   Explore({Key? key}) : super(key: key);
@@ -12,16 +12,20 @@ class Explore extends StatefulWidget {
 
 class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
   List items = [
-    MyFlutterApp.leaf,
+    MyFlutterApp.local_grocery_store,
+    MyFlutterApp.local_dining,
+    MyFlutterApp.local_bar,
     MyFlutterApp.hamburger,
-    MyFlutterApp.cheese,
-    MyFlutterApp.bread_slice,
-    MyFlutterApp.hotdog,
+    MyFlutterApp.free_breakfast,
     MyFlutterApp.ice_cream,
     MyFlutterApp.mug_hot,
-    MyFlutterApp.pizza_slice,
-    MyFlutterApp.pepper_hot
+    MyFlutterApp1.fish,
+    MyFlutterApp1.apple_alt,
+    MyFlutterApp1.beer,
+    MyFlutterApp.cheese,
+    MyFlutterApp.leaf
   ];
+
   late TabController _controller;
   @override
   void initState() {
@@ -114,127 +118,182 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
                   ],
                 ),
               ),
-              DefaultTabController(
-                  length: items.length,
-                  initialIndex: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 0),
-                    child: TabBar(
-                        onTap: (value) {
-                          setState(() {
-                            _controller.index = value;
-                          });
-                        },
-                        indicatorWeight: 0.5,
-                        indicatorColor: Theme.of(context).backgroundColor,
-                        isScrollable: true,
-                        controller: _controller,
-                        tabs: [
-                          _controller.index == 0
-                              ? Container(
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).primaryColor,
-                                      border: Border.all(
-                                          color: Theme.of(context).primaryColor),
-                                      borderRadius: BorderRadius.circular(40)),
-                                  width: 100,
-                                  height: 40,
-                                  child: Row(
-                                    
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8),
-                                        child: Tab(
-                                          icon: Icon(
-                                            items[0],
-                                            color: Theme.of(context).backgroundColor,
+              Scaffold(
+                appBar: AppBar(
+                  leading: DefaultTabController(
+                      length: items.length,
+                      initialIndex: 0,
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+                        child: TabBar(
+                            onTap: (value) {
+                              setState(() {
+                                _controller.index = value;
+                              });
+                            },
+                            indicatorWeight: 0.5,
+                            indicatorColor: Theme.of(context).backgroundColor,
+                            isScrollable: true,
+                            controller: _controller,
+                            tabs: [
+                              _controller.index == 0
+                                  ? Container(
+                                      margin: EdgeInsets.only(bottom: 20),
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                                offset: Offset(5, 5),
+                                                blurRadius: 5,
+                                                color:
+                                                    Theme.of(context).shadowColor),
+                                          ],
+                                          color: Theme.of(context).primaryColor,
+                                          border: Border.all(
+                                              color:
+                                                  Theme.of(context).primaryColor),
+                                          borderRadius: BorderRadius.circular(20)),
+                                      width: 100,
+                                      height: 100,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8, vertical: 8),
+                                            child: Tab(
+                                              icon: Icon(
+                                                items[0],
+                                                color: Theme.of(context)
+                                                    .backgroundColor,
+                                              ),
+                                            ),
                                           ),
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8),
+                                            child: Text("All",
+                                                style: TextStyle(
+                                                  color: Theme.of(context)
+                                                      .backgroundColor,
+                                                )),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  : Container(
+                                      margin: EdgeInsets.only(bottom: 20),
+                                      width: 70,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                                offset: Offset(5, 5),
+                                                blurRadius: 5,
+                                                color:
+                                                    Theme.of(context).shadowColor),
+                                          ],
+                                          border: Border.all(
+                                              color: Theme.of(context)
+                                                  .backgroundColor),
+                                          borderRadius: BorderRadius.circular(20),
+                                          color: Theme.of(context).backgroundColor),
+                                      child: Tab(
+                                        icon: Icon(
+                                          items[0],
+                                          color: Theme.of(context).primaryColor,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text("All",
-                                            style: TextStyle(
-                                              color:
-                                                  Theme.of(context).backgroundColor,
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              : Container(
-                                  width: 70,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Theme.of(context).primaryColor),
-                                      borderRadius: BorderRadius.circular(30),
-                                      color: Theme.of(context).backgroundColor),
-                                  child: Tab(
-                                    icon: Icon(
-                                      items[0],
-                                      color: Theme.of(context).primaryColor,
                                     ),
-                                  ),
-                                ),
-                          _controller.index == 1
-                              ? Tab1(number: items[1])
-                              : Tab2(
-                                  number: items[1],
-                                  text: "Burger",
-                                  width: 120,
-                                ),
-                          _controller.index == 2
-                              ? Tab1(number: items[2])
-                              : Tab2(
-                                  number: items[2],
-                                  text: "Cake",
-                                  width: 110,
-                                ),
-                          _controller.index == 3
-                              ? Tab1(number: items[3])
-                              : Tab2(
-                                  number: items[3],
-                                  text: "Bread",
-                                  width: 120,
-                                ),
-                          _controller.index == 4
-                              ? Tab1(number: items[4])
-                              : Tab2(
-                                  number: items[4],
-                                  text: "HotDog",
-                                  width: 140,
-                                ),
-                          _controller.index == 5
-                              ? Tab1(number: items[5])
-                              : Tab2(
-                                  number: items[5],
-                                  text: "Dessert",
-                                  width: 140,
-                                ),
-                          _controller.index == 6
-                              ? Tab1(number: items[6])
-                              : Tab2(
-                                  number: items[6],
-                                  text: "Drinks",
-                                  width: 120,
-                                ),
-                          _controller.index == 7
-                              ? Tab1(number: items[7])
-                              : Tab2(
-                                  number: items[7],
-                                  text: "Fast Food",
-                                  width: 200,
-                                ),
-                          _controller.index == 8
-                              ? Tab1(number: items[8])
-                              : Tab2(
-                                  number: items[8],
-                                  text: "Spice",
-                                  width: 120,
-                                ),
-                        ]),
-                  ))
+                              _controller.index == 1
+                                  ? Tab1(number: items[1])
+                                  : Tab2(
+                                      number: items[1],
+                                      text: "Dining",
+                                      width: 110,
+                                    ),
+                              _controller.index == 2
+                                  ? Tab1(number: items[2])
+                                  : Tab2(
+                                      number: items[2],
+                                      text: "Soft Drinks",
+                                      width: 110,
+                                    ),
+                              _controller.index == 3
+                                  ? Tab1(number: items[3])
+                                  : Tab2(
+                                      number: items[3],
+                                      text: "Bakery",
+                                      width: 110,
+                                    ),
+                              _controller.index == 4
+                                  ? Tab1(number: items[4])
+                                  : Tab2(
+                                      number: items[4],
+                                      text: "Drinks",
+                                      width: 110,
+                                    ),
+                              _controller.index == 5
+                                  ? Tab1(number: items[5])
+                                  : Tab2(
+                                      number: items[5],
+                                      text: "Dessert",
+                                      width: 110,
+                                    ),
+                              _controller.index == 6
+                                  ? Tab1(number: items[6])
+                                  : Tab2(
+                                      number: items[6],
+                                      text: "Cafe",
+                                      width: 110,
+                                    ),
+                              _controller.index == 7
+                                  ? Tab1(number: items[7])
+                                  : Tab2(
+                                      number: items[7],
+                                      text: "Seafood",
+                                      width: 120,
+                                    ),
+                              _controller.index == 8
+                                  ? Tab1(number: items[8])
+                                  : Tab2(
+                                      number: items[8],
+                                      text: "Fruit",
+                                      width: 120,
+                                    ),
+                              _controller.index == 9
+                                  ? Tab1(number: items[9])
+                                  : Tab2(
+                                      number: items[9],
+                                      text: "Alcohol",
+                                      width: 120,
+                                    ),
+                              _controller.index == 10
+                                  ? Tab1(number: items[10])
+                                  : Tab2(
+                                      number: items[10],
+                                      text: "Cake",
+                                      width: 110,
+                                    ),
+                              _controller.index == 11
+                                  ? Tab1(number: items[11])
+                                  : Tab2(
+                                      number: items[11],
+                                      text: "Vegan",
+                                      width: 120,
+                                    ),
+                            ]),
+                      )),
+                ),
+                body: TabBarView(
+                  controller: _controller,
+                  children: [
+                    ListView.builder(
+                      itemCount: 6,
+                      itemBuilder: ((context, index) => Card(elevation: 5,))),
+                  ],),
+              ),
+                  
             ],
           ),
         ),

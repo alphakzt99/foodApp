@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/MyFlutterApp.ttf
 ///
-/// 
+///
 /// * Material Design Icons, Copyright (C) Google, Inc
 ///         Author:    Google
 ///         License:   Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
@@ -37,38 +37,72 @@ class MyFlutterApp {
   static const _kFontFam = 'MyFlutterApp';
   static const String? _kFontPkg = null;
 
-  static const IconData backup = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData align_left = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData arrow_back = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData create = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData favorite = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData favorite_border = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData free_breakfast = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData local_bar = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData local_dining = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData local_grocery_store = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData phone = IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData restaurant = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData whatshot = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData emo_wink = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData emo_unhappy = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData emo_grin = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData leaf = IconData(0xf06c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData twitter = IconData(0xf099, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData facebook = IconData(0xf09a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData google = IconData(0xf1a0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData cc_visa = IconData(0xf1f0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData cc_mastercard = IconData(0xf1f1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData cc_jcb = IconData(0xf24b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData facebook_squared = IconData(0xf308, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData mug_hot = IconData(0xf7b6, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData bread_slice = IconData(0xf7ec, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData cheese = IconData(0xf7ef, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData egg = IconData(0xf7fb, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData hamburger = IconData(0xf805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData hotdog = IconData(0xf80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData ice_cream = IconData(0xf810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData pepper_hot = IconData(0xf816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData pizza_slice = IconData(0xf818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData biking = IconData(0xf84a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData backup =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData align_left =
+      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData arrow_back =
+      IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData create =
+      IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData favorite =
+      IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData favorite_border =
+      IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData free_breakfast =
+      IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData local_bar =
+      IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData local_dining =
+      IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData local_grocery_store =
+      IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData phone =
+      IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData restaurant =
+      IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData whatshot =
+      IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData emo_wink =
+      IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData emo_unhappy =
+      IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData emo_grin =
+      IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData leaf =
+      IconData(0xf06c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData twitter =
+      IconData(0xf099, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData facebook =
+      IconData(0xf09a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData google =
+      IconData(0xf1a0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData cc_visa =
+      IconData(0xf1f0, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData cc_mastercard =
+      IconData(0xf1f1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData cc_jcb =
+      IconData(0xf24b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData facebook_squared =
+      IconData(0xf308, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData mug_hot =
+      IconData(0xf7b6, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bread_slice =
+      IconData(0xf7ec, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData cheese =
+      IconData(0xf7ef, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData egg =
+      IconData(0xf7fb, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData hamburger =
+      IconData(0xf805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData hotdog =
+      IconData(0xf80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ice_cream =
+      IconData(0xf810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData pepper_hot =
+      IconData(0xf816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData pizza_slice =
+      IconData(0xf818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData biking =
+      IconData(0xf84a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
