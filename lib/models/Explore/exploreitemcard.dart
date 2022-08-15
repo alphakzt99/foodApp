@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class CardExplore extends StatefulWidget {
@@ -15,14 +17,28 @@ class _CardExploreState extends State<CardExplore> {
         scrollDirection: Axis.horizontal,
         itemCount: 6,
         itemBuilder: ((context, index) => Card(
+         
             elevation: 5,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             shadowColor: Theme.of(context).shadowColor,
-            child: Column(
-              children: [
-                
-              ],
+            child: Container(
+              margin: EdgeInsets.all(8),
+              width: 150,
+              child: Column(
+                children: [
+                  cardData[0],
+                  cardData[1],
+                  cardData[2]
+                ],
+              ),
             ))));
   }
 }
+
+List cardData = [
+  Padding(padding: EdgeInsets.all(8),child: Image.asset('lib/assets/cake.png'),),
+  Text("Whatever Cake"),
+  Text('32.99')
+
+];

@@ -286,8 +286,8 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
                   )),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 10,vertical:0),
-                height: size.height * 0.2,
-                width: size.width * 0.1,
+                height: size.height * 0.25,
+                width: size.width * 0.4,
                 child: TabBarView(
                   controller: _controller,
                   children: [

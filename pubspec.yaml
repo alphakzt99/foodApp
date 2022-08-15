@@ -69,6 +69,12 @@ flutter:
     - lib/assets/google.png
     - lib/assets/Facebook-logo.png
     - lib/assets/Twitter.png
+    - lib/assets/cake.png
+    - lib/assets/coffee.png
+    - lib/assets/seafood.png
+    - lib/assets/salad.png
+    - lib/assets/soft drinks.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
