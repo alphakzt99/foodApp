@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:food_app/models/Explore/Tab1.dart';
 import 'package:food_app/models/Explore/exploreitemcard.dart';
@@ -123,10 +125,8 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
               DefaultTabController(
                   length: items.length,
                   initialIndex: 0,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
-                    child: TabBar(
+                  child: 
+                    TabBar(
                         onTap: (value) {
                           setState(() {
                             _controller.index = value;
@@ -139,7 +139,7 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
                         tabs: [
                           _controller.index == 0
                               ? Container(
-                                  margin: EdgeInsets.only(bottom: 20),
+                                  margin: EdgeInsets.only(bottom: 10),
                                   decoration: BoxDecoration(
                                       boxShadow: [
                                         BoxShadow(
@@ -182,7 +182,7 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
                                   ),
                                 )
                               : Container(
-                                  margin: EdgeInsets.only(bottom: 20),
+                                  margin: EdgeInsets.only(bottom: 10),
                                   width: 70,
                                   height: 100,
                                   decoration: BoxDecoration(
@@ -283,11 +283,11 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
                                   width: 120,
                                 ),
                         ]),
-                  )),
+                  ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 10,vertical:0),
-                height: size.height * 0.25,
-                width: size.width * 0.4,
+                height: size.height * 0.4,
+                width: size.width,
                 child: TabBarView(
                   controller: _controller,
                   children: [

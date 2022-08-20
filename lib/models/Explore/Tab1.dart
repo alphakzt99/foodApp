@@ -13,7 +13,7 @@ class _Tab1State extends State<Tab1> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: EdgeInsets.only(bottom: 10),
       width: 70,
       height: 100,
       decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class _Tab2State extends State<Tab2> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         color: Theme.of(context).backgroundColor,
         boxShadow: [BoxShadow(offset: Offset(5,5),blurRadius: 5,color: Theme.of(context).shadowColor),],
