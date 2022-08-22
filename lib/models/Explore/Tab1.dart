@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
+import 'package:food_app/models/Explore/explore.dart';
 
 class Tab1 extends StatefulWidget {
   IconData number;
@@ -13,11 +14,16 @@ class _Tab1State extends State<Tab1> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       width: 70,
       height: 100,
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(offset: Offset(5,5),blurRadius: 5,color: Theme.of(context).shadowColor),],
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(5, 5),
+                blurRadius: 5,
+                color: Theme.of(context).shadowColor),
+          ],
           borderRadius: BorderRadius.circular(20),
           color: Theme.of(context).primaryColorLight),
       child: Tab(
@@ -35,7 +41,7 @@ class Tab2 extends StatefulWidget {
   IconData number;
   double width;
   Tab2(
-      {Key? key, required this.number,required this.text,required this.width})
+      {Key? key, required this.number, required this.text, required this.width})
       : super(key: key);
 
   @override
@@ -48,8 +54,13 @@ class _Tab2State extends State<Tab2> {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: Theme.of(context).backgroundColor,
-        boxShadow: [BoxShadow(offset: Offset(5,5),blurRadius: 5,color: Theme.of(context).shadowColor),],
+          color: Theme.of(context).backgroundColor,
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(5, 5),
+                blurRadius: 5,
+                color: Theme.of(context).shadowColor),
+          ],
           border: Border.all(color: Theme.of(context).backgroundColor),
           borderRadius: BorderRadius.circular(20)),
       width: widget.width,
@@ -58,7 +69,7 @@ class _Tab2State extends State<Tab2> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             child: Tab(
               icon: Icon(
                 widget.number,
