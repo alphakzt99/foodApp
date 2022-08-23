@@ -18,55 +18,53 @@ class _CardExploreState extends State<CardExplore> {
   Widget build(BuildContext context) {
     List cardData = [
       Container(
-        width: 280,
-        height: 220,
+        width: 200,
+        height: 170,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
             image: DecorationImage(
                 fit: BoxFit.cover, image: AssetImage('lib/assets/cake.png'))),
       ),
+      Padding(
+        padding: const EdgeInsets.only(top: 8,bottom: 10),
+        child: RichText(
+          text: TextSpan(children: [
+            TextSpan(text: 'Walgreens\n',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22)),
+            TextSpan(text: 'Fresh and tasty',style: TextStyle(fontSize: 12,color: Colors.white70))
+          ]),
+        )
+      ),
       Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0, right: 8),
-            child: Text(
-              "Banh Mi",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Theme.of(context).primaryColorLight),
-            ),
-          ),
-          IconButton(
-              padding: EdgeInsets.only(
-                left: 120,
-              ),
-              onPressed: () {
-                setState(() {
-                  pressed = true;
-                });
-              },
-              icon: pressed
-                  ? Icon(
-                      MyFlutterApp.favorite,
-                      color: Theme.of(context).primaryColorLight,
-                    )
-                  : Icon(
-                      MyFlutterApp.favorite_border,
-                      color: Theme.of(context).primaryColorLight,
-                    ))
-        ],
-      ),
-      Padding(
-          padding: const EdgeInsets.only(left: 8, right: 8),
-          child: RichText(
-            textScaleFactor: 1.5,
+          RichText(
+            textScaleFactor: 1.2,
             text: TextSpan(children: [
-              TextSpan(text: "1.4 km, 20 min\n"),
-              TextSpan(text: "\$3.55 delivery fee")
+              TextSpan(
+                  text: "\$3.55", style: TextStyle(fontWeight: FontWeight.bold))
             ]),
-          ))
+          ),
+          Container(
+            width: 35,
+            height: 35,
+            margin: EdgeInsets.only(left:90),
+            decoration: BoxDecoration(
+                color: Theme.of(context).backgroundColor,
+                borderRadius: BorderRadius.circular(10)),
+            child: IconButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    pressed = true;
+                  });
+                },
+                icon: Icon(
+                  Icons.add,
+                  color: Theme.of(context).primaryColor,
+                )),
+          )
+        ],
+      )
     ];
     return ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -76,11 +74,11 @@ class _CardExploreState extends State<CardExplore> {
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      offset: Offset(5, 5),
+                      offset: Offset(8, 8),
                       blurRadius: 5,
                       color: Theme.of(context).shadowColor)
                 ],
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(20),
                 color: Theme.of(context).primaryColor),
             child: Column(
               children: [
