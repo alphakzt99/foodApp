@@ -25,11 +25,11 @@ class _Tab1State extends State<Tab1> {
                 color: Theme.of(context).shadowColor),
           ],
           borderRadius: BorderRadius.circular(20),
-          color: Theme.of(context).primaryColorLight),
+          color: Theme.of(context).primaryColor),
       child: Tab(
         icon: Icon(
           widget.number,
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).backgroundColor,
         ),
       ),
     );

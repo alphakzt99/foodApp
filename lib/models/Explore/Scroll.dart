@@ -45,11 +45,8 @@ class _ScrollState extends State<Scroll> {
           ),
         ),
         Container(
-          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColorDark,
-            borderRadius: BorderRadius.circular(20),
-          ),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
+          
           child: Row(children: [
             Padding(
               padding: const EdgeInsets.only(left: 15),
@@ -58,7 +55,7 @@ class _ScrollState extends State<Scroll> {
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Theme.of(context).backgroundColor),
+                    color: Theme.of(context).primaryColor),
               ),
             ),
             SizedBox(
@@ -70,7 +67,7 @@ class _ScrollState extends State<Scroll> {
                 onPressed: () {},
                 icon: Icon(
                   MyFlutterApp1.right_big,
-                  color: Theme.of(context).backgroundColor,
+                  color: Theme.of(context).primaryColor,
                 ))
           ]),
         ),

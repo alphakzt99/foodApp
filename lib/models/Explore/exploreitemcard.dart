@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:food_app/main.dart';
 import 'package:food_app/models/Explore/Tab1.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
 import 'package:food_app/my_flutter_app_icons1.dart';
@@ -30,8 +31,8 @@ class _CardExploreState extends State<CardExplore> {
         padding: const EdgeInsets.only(top: 8,bottom: 10),
         child: RichText(
           text: TextSpan(children: [
-            TextSpan(text: 'Walgreens\n',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22)),
-            TextSpan(text: 'Fresh and tasty',style: TextStyle(fontSize: 12,color: Colors.white70))
+            TextSpan(text: 'Walgreens\n',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22,fontFamily: font)),
+            TextSpan(text: 'Fresh and tasty',style: TextStyle(fontSize: 12,color: Colors.white70,fontFamily: font))
           ]),
         )
       ),
@@ -41,7 +42,7 @@ class _CardExploreState extends State<CardExplore> {
             textScaleFactor: 1.2,
             text: TextSpan(children: [
               TextSpan(
-                  text: "\$3.55", style: TextStyle(fontWeight: FontWeight.bold))
+                  text: "\$3.55", style: TextStyle(fontWeight: FontWeight.bold,fontFamily: font))
             ]),
           ),
           Container(

@@ -5,6 +5,7 @@ import 'package:food_app/models/Explore/Offers.dart';
 import 'package:food_app/models/Explore/Scroll.dart';
 import 'package:food_app/models/Explore/Tab1.dart';
 import 'package:food_app/models/Explore/exploreitemcard.dart';
+import 'package:food_app/models/SignUpLogin/SignUp.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
 import 'package:food_app/my_flutter_app_icons1.dart';
 
@@ -51,73 +52,93 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
+      floatingActionButton: Container(
+          height: 50,
+          width: 50,
+          margin: EdgeInsets.only(bottom: size.width, right: 10),
+          decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black26, offset: Offset(4, 4), blurRadius: 5)
+              ],
+              borderRadius: BorderRadius.circular(25)),
+          child: IconButton(
+            splashRadius: 30,
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => SignUp()));
+            },
+            icon: Icon(Icons.search),
+            color: Theme.of(context).backgroundColor,
+          )),
       backgroundColor: Colors.white,
       appBar: AppBar(
-          leadingWidth: 70,
-          toolbarHeight: 60,
-          elevation: 0,
-          backgroundColor: Colors.white,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 20,top: 10,bottom: 10),
-            child: 
-                InkWell(
-                  onTap: () => Drawer(),
-                  child: Container(
-                    
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Theme.of(context).backgroundColor,
-                      boxShadow: [
-                        BoxShadow(
-                            offset: Offset(5, 5),
-                            blurRadius: 5,
-                            color: Theme.of(context).shadowColor),
-                      ],
+        leadingWidth: 70,
+        toolbarHeight: 60,
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
+          child: InkWell(
+            onTap: () => Drawer(),
+            child: Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Theme.of(context).backgroundColor,
+                boxShadow: [
+                  BoxShadow(
+                      offset: Offset(5, 5),
+                      blurRadius: 5,
+                      color: Theme.of(context).shadowColor),
+                ],
+              ),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      height: 3,
+                      width: 20,
                     ),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            height: 3,
-                            width: 20,
-                          ),
-                          SizedBox(
-                            height: 3,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            height: 3,
-                            width: 25,
-                          ),
-                          SizedBox(
-                            height: 3,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            height: 3,
-                            width: 15,
-                          )
-                        ]),
-                  ),
-                ),
-      
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      height: 3,
+                      width: 25,
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      height: 3,
+                      width: 15,
+                    )
+                  ]),
             ),
           ),
+        ),
+      ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10,),
+        padding: const EdgeInsets.only(
+          left: 10,
+          right: 10,
+        ),
         child: Container(
           width: size.width,
           height: size.height,
@@ -125,7 +146,8 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -303,7 +325,9 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
                             ),
                     ]),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 30,
+              ),
               Scroll(controller: _controller)
             ]),
           ),

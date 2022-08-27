@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/Body.dart';
-
+String font = 'RobotoSlab';
 void main() => runApp(const FoodApp());
 
 class FoodApp extends StatelessWidget {
@@ -8,6 +8,7 @@ class FoodApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Hmar Kya Mal",
@@ -18,9 +19,8 @@ class FoodApp extends StatelessWidget {
           primaryColor: Color(0xFF272D2F),
           primaryColorDark: Color(0xFFFE724C),
           shadowColor: Colors.black12,
-          fontFamily: 'RobotoSlab',
+          fontFamily: font,
         ),
-        
         home: Home());
   }
 }
