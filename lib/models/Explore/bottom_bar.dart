@@ -119,14 +119,14 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                     child: Material(
                         color: Colors.transparent,
                         child: Container(
-                          color: Theme.of(context).primaryColorLight,
+                          color: Theme.of(context).primaryColor,
                           width: 60,
                           height: 60,
                           child: Center(
                               child: IconButton(
                             icon: Icon(
                               Icons.arrow_upward,
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).backgroundColor,
                             ),
                             onPressed: () {
                               bottomScrollcontroller

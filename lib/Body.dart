@@ -150,9 +150,9 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                                         unselectedColor:
                                             Theme.of(context).backgroundColor,
                                         barcolor:
-                                            Theme.of(context).primaryColorLight,
-                                        selectedColor:
                                             Theme.of(context).primaryColor,
+                                        selectedColor:
+                                            Theme.of(context).primaryColorLight,
                                       ))),
                           style: ButtonStyle(
                             shape: MaterialStateProperty.all(

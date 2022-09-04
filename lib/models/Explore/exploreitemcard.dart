@@ -80,7 +80,7 @@ class _CardExploreState extends State<CardExplore> {
                       color: Theme.of(context).shadowColor)
                 ],
                 borderRadius: BorderRadius.circular(20),
-                color: Theme.of(context).primaryColor),
+                color: Theme.of(context).primaryColorDark),
             child: Column(
               children: [
                 cardData[0],
