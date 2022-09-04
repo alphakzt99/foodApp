@@ -35,11 +35,22 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Theme.of(context).backgroundColor,
-        ),
-        body: Body());
+    return MaterialApp(
+      useInheritedMediaQuery: true,
+      theme: ThemeData(
+        primaryColor: Color(0x272D2F),
+        primaryColorLight: Color(0xFFC529),
+        primaryColorDark: Color(0xFE724C),
+        backgroundColor: Color(0xD7D7D7),
+        shadowColor: Colors.black54
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Theme.of(context).backgroundColor,
+          ),
+          body: Body()),
+    );
   }
 }

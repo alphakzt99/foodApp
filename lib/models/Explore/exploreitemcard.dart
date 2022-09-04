@@ -71,7 +71,7 @@ class _CardExploreState extends State<CardExplore> {
         scrollDirection: Axis.horizontal,
         itemCount: index1,
         itemBuilder: ((context, index) => Container(
-            margin: EdgeInsets.all(10),
+            margin: EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(

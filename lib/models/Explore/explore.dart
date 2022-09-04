@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:food_app/models/Explore/Offers.dart';
 import 'package:food_app/models/Explore/Scroll.dart';
 import 'package:food_app/models/Explore/Tab1.dart';
+import 'package:food_app/models/Explore/bottom_bar.dart';
 import 'package:food_app/models/Explore/exploreitemcard.dart';
+import 'package:food_app/models/Explore/inheriteddataprovider.dart';
+import 'package:food_app/models/Pages/favorites.dart';
+import 'package:food_app/models/Pages/order.dart';
+import 'package:food_app/models/Pages/payment.dart';
 import 'package:food_app/models/SignUpLogin/SignUp.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
 import 'package:food_app/my_flutter_app_icons1.dart';
@@ -31,18 +36,38 @@ class Explore extends StatefulWidget {
   State<Explore> createState() => _ExploreState();
 }
 
-class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
+class _ExploreState extends State<Explore> with TickerProviderStateMixin {
+  late int _currentPage;
   late TabController _controller;
+  late TabController tabController;
+  late ScrollController ExploreScrollcontroller =
+      InheritedDataProvider.of(context).InheritedScrollcontroller;
+
   @override
   void initState() {
+    _currentPage = 0;
+    tabController = TabController(length: 4, vsync: this);
+    tabController.addListener(() {
+      final value = tabController.animation!.value.round();
+      if (value != _currentPage && mounted) {
+        changePage(value);
+      }
+    });
     _controller = TabController(length: items.length, vsync: this);
     // TODO: implement initState
     super.initState();
   }
 
+  void changePage(int newPage) {
+    setState() {
+      _currentPage = newPage;
+    }
+  }
+
   @override
   void dispose() {
     _controller.dispose();
+    tabController.dispose();
     // TODO: implement dispose
     super.dispose();
   }
@@ -52,26 +77,6 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      floatingActionButton: Container(
-          height: 50,
-          width: 50,
-          margin: EdgeInsets.only(bottom: size.width, right: 10),
-          decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black26, offset: Offset(4, 4), blurRadius: 5)
-              ],
-              borderRadius: BorderRadius.circular(25)),
-          child: IconButton(
-            splashRadius: 30,
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => SignUp()));
-            },
-            icon: Icon(Icons.search),
-            color: Theme.of(context).backgroundColor,
-          )),
       backgroundColor: Colors.white,
       appBar: AppBar(
         leadingWidth: 70,
@@ -143,6 +148,7 @@ class _ExploreState extends State<Explore> with SingleTickerProviderStateMixin {
           width: size.width,
           height: size.height,
           child: SingleChildScrollView(
+            controller: ExploreScrollcontroller,
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Padding(
