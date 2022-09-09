@@ -38,6 +38,7 @@ dependencies:
   glassmorphism: ^3.0.0 
   sqflite:
   path:
+  ternav_icons: ^1.0.0
 
 dev_dependencies:
   flutter_test:

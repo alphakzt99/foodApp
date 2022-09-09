@@ -71,13 +71,13 @@ class _CardExploreState extends State<CardExplore> {
         scrollDirection: Axis.horizontal,
         itemCount: index1,
         itemBuilder: ((context, index) => Container(
-            margin: EdgeInsets.symmetric(horizontal: 10),
+            margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
                       offset: Offset(8, 8),
-                      blurRadius: 5,
-                      color: Theme.of(context).shadowColor)
+                      blurRadius: 8,
+                      color: Colors.white)
                 ],
                 borderRadius: BorderRadius.circular(20),
                 color: Theme.of(context).primaryColorDark),

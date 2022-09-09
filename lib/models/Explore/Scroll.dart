@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/models/Explore/Offers.dart';
 import 'package:food_app/models/Explore/exploreitemcard.dart';
+import 'package:food_app/models/Explore/explorelistview.dart';
 import 'package:food_app/my_flutter_app_icons1.dart';
 
 class Scroll extends StatefulWidget {
@@ -15,9 +16,9 @@ class _ScrollState extends State<Scroll> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    Widget text(String text, double width) {
+    Widget text(String text, double width, double margintop) {
       return Container(
-        margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
+        margin: EdgeInsets.only(left: 10, right: 10, top: margintop),
         child: Row(children: [
           Padding(
             padding: const EdgeInsets.only(left: 15),
@@ -49,7 +50,7 @@ class _ScrollState extends State<Scroll> {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30))),
       child: Column(children: [
-        text("More", 0.6),
+        text("More", 0.6, 7),
         Container(
           height: size.height * 0.4,
           width: size.width,
@@ -71,8 +72,10 @@ class _ScrollState extends State<Scroll> {
             ],
           ),
         ),
-        text("Today's Deals", 0.4),
-        Container(height: size.height * 0.2, child: Offers())
+        text("Near You", 0.5, 0),
+        Container(height: size.height * 0.2, child: Offers()),
+        text("Today's Deals", 0.4, 0),
+        Container(height: size.height * 0.2, child: Offers()),
       ]),
     );
   }

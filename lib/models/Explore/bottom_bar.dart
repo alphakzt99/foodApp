@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:food_app/models/Explore/inheriteddataprovider.dart';
+import 'package:food_app/my_flutter_app_icons.dart';
 import 'package:food_app/my_flutter_app_icons1.dart';
+import 'package:ternav_icons/ternav_icons.dart';
 
 class BottomBar extends StatefulWidget {
   Widget child;
@@ -202,11 +204,9 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                                   child: Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Icon(
-                                      MyFlutterApp1.account_balance_wallet,
+                                      TernavIcons.light.home,
                                       color:
-                                          widget.bottomtabcontroller.index == 0
-                                              ? widget.selectedColor
-                                              : widget.unselectedColor,
+                                           widget.unselectedColor,
                                     ),
                                   ),
                                 ),
@@ -215,11 +215,9 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                                   child: Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Icon(
-                                      MyFlutterApp1.account_balance_wallet,
+                                      TernavIcons.bold.heart,
                                       color:
-                                          widget.bottomtabcontroller.index == 1
-                                              ? widget.selectedColor
-                                              : widget.unselectedColor,
+                                           widget.unselectedColor,
                                     ),
                                   ),
                                 ),
@@ -228,11 +226,9 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                                   child: Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Icon(
-                                      MyFlutterApp1.account_balance_wallet,
-                                      color:
-                                          widget.bottomtabcontroller.index == 2
-                                              ? widget.selectedColor
-                                              : widget.unselectedColor,
+                                      TernavIcons.bold.cart,
+                                      color: widget.unselectedColor
+                                          
                                     ),
                                   ),
                                 ),
@@ -242,11 +238,8 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                                   child: Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Icon(
-                                      MyFlutterApp1.account_balance_wallet,
-                                      color:
-                                          widget.bottomtabcontroller.index == 3
-                                              ? widget.selectedColor
-                                              : widget.unselectedColor,
+                                      TernavIcons.bold.wallet,
+                                      color: widget.unselectedColor
                                     ),
                                   ),
                                 ),

@@ -6,6 +6,7 @@ import 'package:food_app/models/Explore/Scroll.dart';
 import 'package:food_app/models/Explore/Tab1.dart';
 import 'package:food_app/models/Explore/bottom_bar.dart';
 import 'package:food_app/models/Explore/exploreitemcard.dart';
+import 'package:food_app/models/Explore/explorelistview.dart';
 import 'package:food_app/models/Explore/inheriteddataprovider.dart';
 import 'package:food_app/models/Pages/favorites.dart';
 import 'package:food_app/models/Pages/order.dart';
@@ -13,9 +14,10 @@ import 'package:food_app/models/Pages/payment.dart';
 import 'package:food_app/models/SignUpLogin/SignUp.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
 import 'package:food_app/my_flutter_app_icons1.dart';
+import 'package:ternav_icons/ternav_icons.dart';
 
 List items = [
-  MyFlutterApp.local_grocery_store,
+  TernavIcons.bold.menu,
   MyFlutterApp.local_dining,
   MyFlutterApp.local_bar,
   MyFlutterApp.hamburger,
@@ -91,14 +93,9 @@ class _ExploreState extends State<Explore> with TickerProviderStateMixin {
               width: 30,
               height: 30,
               decoration: BoxDecoration(
+                border: Border.all(color: Theme.of(context).primaryColor),
                 borderRadius: BorderRadius.circular(10),
-                color: Theme.of(context).backgroundColor,
-                boxShadow: [
-                  BoxShadow(
-                      offset: Offset(5, 5),
-                      blurRadius: 5,
-                      color: Theme.of(context).shadowColor),
-                ],
+                
               ),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -334,7 +331,11 @@ class _ExploreState extends State<Explore> with TickerProviderStateMixin {
               SizedBox(
                 height: 30,
               ),
-              Scroll(controller: _controller)
+              Scroll(controller: _controller),
+               Container(
+                padding: EdgeInsets.only(left: 10,right: 10),
+                color: Theme.of(context).backgroundColor,
+                child: exploreList(width: size.width* 0.8,height: size.height * 0.2,size: size.width,))
             ]),
           ),
         ),

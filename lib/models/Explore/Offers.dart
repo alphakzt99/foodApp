@@ -24,7 +24,7 @@ class _OffersState extends State<Offers> {
                 ],
                   color: Theme.of(context).primaryColorLight,
                   borderRadius: BorderRadius.circular(20)),
-              width: MediaQuery.of(context).size.width*0.7,
+              width: MediaQuery.of(context).size.width * 0.7,
               height: MediaQuery.of(context).size.height * 0.1,
               child: ListTile(
                 contentPadding: const EdgeInsets.all(8),
