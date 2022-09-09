@@ -4,7 +4,7 @@ import 'package:food_app/models/Explore/inheriteddataprovider.dart';
 import 'package:food_app/my_flutter_app_icons1.dart';
 
 class BottomBar extends StatefulWidget {
-  final Widget child;
+  Widget child;
   final double end;
   final double start;
   TabController bottomtabcontroller;
@@ -29,6 +29,7 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
+  late TabController tabController;
   ScrollController bottomScrollcontroller = ScrollController();
   late AnimationController _controller;
   late Animation<Offset> _offsetAnimation;
@@ -38,6 +39,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
   void initState() {
     scroll();
     super.initState();
+    tabController = TabController(length: 4, vsync: this);
     _controller = AnimationController(
         duration: const Duration(milliseconds: 200), vsync: this);
     _offsetAnimation =
@@ -97,9 +99,8 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      child: Stack(
+    return Scaffold(
+      body: Stack(
         fit: StackFit.expand,
         alignment: Alignment.bottomCenter,
         children: [
@@ -163,65 +164,94 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                           borderRadius: BorderRadius.circular(500)),
                       child: Material(
                           color: widget.barcolor,
-                          child: TabBar(
-                            onTap: (value) {
-                              setState(() {
-                                widget.bottomtabcontroller.index = value;
-                              });
-                            },
-                            indicatorWeight: 10,
-                            indicatorPadding:
-                                const EdgeInsets.fromLTRB(6, 0, 6, 0),
-                            controller: widget.bottomtabcontroller,
-                            indicatorSize: TabBarIndicatorSize.label,
-                            indicator: BoxDecoration(
-                                borderRadius: BorderRadius.circular(2)),
-                            indicatorColor: widget.bottomtabcontroller.index ==
-                                    widget.currentPage
-                                ? widget.selectedColor
-                                : widget.unselectedColor,
-                            tabs: [
-                              SizedBox(
-                                height: 45,
-                                width: 30,
-                                child: Icon(
-                                  MyFlutterApp1.account_balance_wallet,
-                                  color: widget.bottomtabcontroller.index == 0
-                                      ? widget.selectedColor
-                                      : widget.unselectedColor,
-                                ),
+                          child: DefaultTabController(
+                            length: 4,
+                            initialIndex: 0,
+                            child: TabBar(
+                              controller: tabController,
+                              splashBorderRadius: BorderRadius.circular(20),
+                              onTap: ((value) {
+                                setState(() {
+                                  tabController.index = value;
+                                  widget.bottomtabcontroller.index =
+                                      tabController.index;
+                                });
+                              }),
+                              indicatorWeight: 10,
+                              indicatorSize: TabBarIndicatorSize.label,
+                              indicator: UnderlineTabIndicator(
+                                borderSide: BorderSide(
+                                    width: 4,
+                                    color: widget.bottomtabcontroller.index == 0
+                                        ? widget.selectedColor
+                                        : widget.bottomtabcontroller.index == 1
+                                            ? widget.selectedColor
+                                            : widget.bottomtabcontroller
+                                                        .index ==
+                                                    2
+                                                ? widget.selectedColor
+                                                : widget.bottomtabcontroller
+                                                            .index ==
+                                                        3
+                                                    ? widget.selectedColor
+                                                    : widget.unselectedColor),
                               ),
-                              SizedBox(
-                                height: 45,
-                                width: 30,
-                                child: Icon(
-                                  MyFlutterApp1.account_balance_wallet,
-                                  color: widget.bottomtabcontroller.index == 1
-                                      ? widget.selectedColor
-                                      : widget.unselectedColor,
+                              tabs: [
+                                Tab(
+                                  height: 45,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 8.0),
+                                    child: Icon(
+                                      MyFlutterApp1.account_balance_wallet,
+                                      color:
+                                          widget.bottomtabcontroller.index == 0
+                                              ? widget.selectedColor
+                                              : widget.unselectedColor,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 45,
-                                width: 30,
-                                child: Icon(
-                                  MyFlutterApp1.account_balance_wallet,
-                                  color: widget.bottomtabcontroller.index == 2
-                                      ? widget.selectedColor
-                                      : widget.unselectedColor,
+                                Tab(
+                                  height: 45,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 8.0),
+                                    child: Icon(
+                                      MyFlutterApp1.account_balance_wallet,
+                                      color:
+                                          widget.bottomtabcontroller.index == 1
+                                              ? widget.selectedColor
+                                              : widget.unselectedColor,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 45,
-                                width: 30,
-                                child: Icon(
-                                  MyFlutterApp1.account_balance_wallet,
-                                  color: widget.bottomtabcontroller.index == 3
-                                      ? widget.selectedColor
-                                      : widget.unselectedColor,
+                                Tab(
+                                  height: 45,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 8.0),
+                                    child: Icon(
+                                      MyFlutterApp1.account_balance_wallet,
+                                      color:
+                                          widget.bottomtabcontroller.index == 2
+                                              ? widget.selectedColor
+                                              : widget.unselectedColor,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Tab(
+                                  iconMargin: EdgeInsets.only(bottom: 0),
+                                  height: 45,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 8.0),
+                                    child: Icon(
+                                      MyFlutterApp1.account_balance_wallet,
+                                      color:
+                                          widget.bottomtabcontroller.index == 3
+                                              ? widget.selectedColor
+                                              : widget.unselectedColor,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           )),
                     ),
                   )))

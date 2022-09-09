@@ -18,15 +18,15 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
-  late int currentPage;
-  late TabController bodycontroller;
+  late int CurrentPage;
+  late TabController tabcontroller;
   @override
   void initState() {
-    bodycontroller = TabController(length: 4, vsync: this);
-    currentPage = 0;
-    bodycontroller.animation!.addListener(() {
-      final value = bodycontroller.animation!.value.round();
-      if (value != currentPage && mounted) {
+    tabcontroller = TabController(length: 4, vsync: this);
+    CurrentPage = 0;
+    tabcontroller.animation!.addListener(() {
+      final value = tabcontroller.animation!.value.round();
+      if ( value != CurrentPage && mounted) {
         changePage(value);
       }
     });
@@ -36,13 +36,13 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
 
   void changePage(int nextPage) {
     setState(() {
-      currentPage = nextPage;
+      CurrentPage = nextPage;
     });
   }
 
   @override
   void dispose() {
-    bodycontroller.dispose();
+    tabcontroller.dispose();
     // TODO: implement dispose
     super.dispose();
   }
@@ -133,10 +133,11 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                               MaterialPageRoute(
                                   builder: (context) => BottomBar(
                                         child: TabBarView(
-                                            dragStartBehavior: DragStartBehavior.down,
+                                            dragStartBehavior:
+                                                DragStartBehavior.down,
                                             physics:
                                                 const BouncingScrollPhysics(),
-                                            controller: bodycontroller,
+                                            controller: tabcontroller,
                                             children: [
                                               Explore(),
                                               Favorites(),
@@ -145,8 +146,8 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                                             ]),
                                         end: 2,
                                         start: 10,
-                                        currentPage: currentPage,
-                                        bottomtabcontroller: bodycontroller,
+                                        currentPage: CurrentPage,
+                                        bottomtabcontroller: tabcontroller,
                                         unselectedColor:
                                             Theme.of(context).backgroundColor,
                                         barcolor:
