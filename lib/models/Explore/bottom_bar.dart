@@ -215,7 +215,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                                   child: Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Icon(
-                                      TernavIcons.bold.heart,
+                                      TernavIcons.bold.search,
                                       color:
                                            widget.unselectedColor,
                                     ),
@@ -238,7 +238,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                                   child: Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Icon(
-                                      TernavIcons.bold.wallet,
+                                      TernavIcons.bold.user1, 
                                       color: widget.unselectedColor
                                     ),
                                   ),

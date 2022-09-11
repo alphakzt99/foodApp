@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:food_app/models/Explore/bottom_bar.dart';
 
 import 'package:food_app/models/Explore/explore.dart';
-import 'package:food_app/models/Pages/favorites.dart';
+import 'package:food_app/models/Pages/search.dart';
 import 'package:food_app/models/Pages/order.dart';
-import 'package:food_app/models/Pages/payment.dart';
+import 'package:food_app/models/Pages/account.dart';
 
 import 'package:food_app/models/SignUpLogin/signUp.dart';
 import 'package:path/path.dart';
@@ -153,7 +153,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                                         barcolor:
                                             Theme.of(context).primaryColor,
                                         selectedColor:
-                                            Theme.of(context).primaryColorLight,
+                                            Theme.of(context).primaryColorDark,
                                       ))),
                           style: ButtonStyle(
                             shape: MaterialStateProperty.all(

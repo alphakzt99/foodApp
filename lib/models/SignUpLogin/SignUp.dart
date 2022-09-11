@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:food_app/models/SignUpLogin/login_page.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
+import 'package:ternav_icons/ternav_icons.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -292,7 +293,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                         textfield(
                                             "Username",
                                             Icon(
-                                              Icons.person_outlined,
+                                              TernavIcons.light.user_2,
                                               color: Theme.of(context)
                                                   .primaryColor,
                                             ),
@@ -303,7 +304,7 @@ class _SignUpState extends State<SignUp> with SingleTickerProviderStateMixin {
                                         textfield(
                                             "Password",
                                             Icon(
-                                              Icons.lock_outline,
+                                              TernavIcons.lightOutline.lock_1,
                                               color: Theme.of(context)
                                                   .primaryColor,
                                             ),

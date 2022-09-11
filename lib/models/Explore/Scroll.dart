@@ -44,7 +44,7 @@ class _ScrollState extends State<Scroll> {
     }
 
     return Container(
-      height: size.height,
+      height: size.height * 1.1,
       decoration: BoxDecoration(
           color: Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.only(
@@ -52,23 +52,24 @@ class _ScrollState extends State<Scroll> {
       child: Column(children: [
         text("More", 0.6, 7),
         Container(
-          height: size.height * 0.4,
+          height: size.height * 0.45,
           width: size.width,
           child: TabBarView(
             controller: widget.controller,
             children: [
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
-              CardExplore(),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+              CardExplore(rating: 5.0,),
+             
             ],
           ),
         ),

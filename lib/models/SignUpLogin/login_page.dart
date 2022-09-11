@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:ternav_icons/ternav_icons.dart';
 
 import '../../my_flutter_app_icons.dart';
 
@@ -43,7 +44,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    bool isSwitched = true;
+    bool isSwitched = false;
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +133,7 @@ class _LoginState extends State<Login> {
                 textfield(
                     "Password",
                     Icon(
-                      Icons.lock_outline,
+                      TernavIcons.lightOutline.lock_1,
                       color: Theme.of(context).primaryColor,
                     ),
                     TextInputType.visiblePassword),
