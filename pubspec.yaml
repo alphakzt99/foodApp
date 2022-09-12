@@ -72,11 +72,11 @@ flutter:
     - lib/assets/Twitter.png
     - lib/assets/cake.png
     - lib/assets/coffee.png
-    - lib/assets/seafood.png
-    - lib/assets/salad.png
-    - lib/assets/soft drinks.png
     - lib/assets/search.png
-
+    - lib/assets/sandwich.jpg
+    - lib/assets/Snacks.jpg
+    - lib/assets/SoftDrink.jpg
+    - lib/assets/Chicken.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

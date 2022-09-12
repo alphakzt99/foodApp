@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:food_app/models/Explore/explore.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
 import 'package:food_app/my_flutter_app_icons1.dart';
 import 'package:ternav_icons/ternav_icons.dart';
@@ -23,6 +24,7 @@ class _FavoritesState extends State<Favorites> {
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -108,32 +110,68 @@ class _FavoritesState extends State<Favorites> {
               )),
           Expanded(
             child: GridView.builder(
-              padding: EdgeInsets.only(top: 8),
-                itemCount: 12,
+                padding: const EdgeInsets.only(top: 8, right: 8, bottom: 8),
+                itemCount: 8,
                 controller: controller,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
                     crossAxisCount: 2),
-                itemBuilder: ((context, index) {
+                itemBuilder: ((context, index1) {
                   return Container(
-                    margin: EdgeInsets.all(10),
-                    width: 50,
-                    height: 150,
-                    child: Column(children: [
-                      Icon(TernavIcons.bold.card),
-                      Text("Hello")
-                    ]),
-                    decoration: BoxDecoration(
-                     
-                      gradient: LinearGradient(colors: [
-                        Theme.of(context).primaryColorLight,
-                        Theme.of(context).primaryColorDark
-                      ]),
-                      borderRadius: BorderRadius.circular(20)),
-                  );
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(gradient: LinearGradient(colors: [Theme.of(context).backgroundColor,])),
+                      child: itemList(IndexNo: index1,IndexNo1: index1+1,));
                 })),
           )
         ],
       ),
+    );
+  }
+}
+
+List items = [
+  AssetImage("lib/assets/Snacks.jpg"),
+  AssetImage("lib/assets/sandwich.jpg"),
+  AssetImage("lib/assets/SoftDrink.jpg"),
+  AssetImage("lib/assets/Chicken.jpg"),
+  AssetImage("lib/assets/Snacks.jpg"),
+  AssetImage("lib/assets/sandwich.jpg"),
+  AssetImage("lib/assets/SoftDrink.jpg"),
+  AssetImage("lib/assets/Chicken.jpg"),
+];
+
+class itemList extends StatefulWidget {
+  int IndexNo;
+  int IndexNo1;
+  itemList({Key? key, required this.IndexNo, required this.IndexNo1}) : super(key: key);
+
+  @override
+  State<itemList> createState() => _itemListState();
+}
+
+class _itemListState extends State<itemList> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: 70,
+          height: 70,
+          decoration: BoxDecoration(
+              image: DecorationImage(image: items[widget.IndexNo]),
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Theme.of(context).primaryColorDark, Colors.white])),
+        ),
+        Container(
+          width: 30,height: 30,
+          child: Icon(TernavIcons.bold.airpod),
+        )
+      ],
     );
   }
 }

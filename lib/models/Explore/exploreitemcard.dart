@@ -32,9 +32,10 @@ class _CardExploreState extends State<CardExplore> {
             width: 180,
             height: 150,
             decoration: BoxDecoration(
+              color: Colors.white,
                 image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage('lib/assets/cake.png')),
+                    image: AssetImage('lib/assets/search.png')),
                 borderRadius: BorderRadius.circular(15)),
           ),
         ),

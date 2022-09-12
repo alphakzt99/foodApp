@@ -27,11 +27,16 @@ class _exploreListState extends State<exploreList> {
       Container(
         width: 150,
         height: widget.height,
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
+            ),
         child: Center(
           child: Container(
             width: 130,
             height: widget.height -20,
             decoration: BoxDecoration(
+              color: Colors.white,
               boxShadow: [
                 BoxShadow(
                   offset: Offset(4,4),
@@ -40,13 +45,9 @@ class _exploreListState extends State<exploreList> {
                 )
               ],
               image: DecorationImage(
-                  fit: BoxFit.cover, image: AssetImage('lib/assets/cake.png')),
+                  fit: BoxFit.cover, image: AssetImage('lib/assets/search.png')),
               borderRadius: BorderRadius.circular(15))),
         ),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
-            ),
       ),
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
