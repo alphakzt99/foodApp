@@ -41,6 +41,7 @@ class _FavoritesState extends State<Favorites> {
           ),
         ),
         leading: Container(
+          decoration: BoxDecoration(border: Border.all(color: Theme.of(context).primaryColor)),
           child: IconButton(
               onPressed: () {},
               icon: Icon(
@@ -110,6 +111,7 @@ class _FavoritesState extends State<Favorites> {
               )),
           Expanded(
             child: GridView.builder(
+              shrinkWrap: true,
                 padding: const EdgeInsets.only(top: 8, right: 8, bottom: 8),
                 itemCount: 8,
                 controller: controller,
@@ -118,11 +120,22 @@ class _FavoritesState extends State<Favorites> {
                     crossAxisSpacing: 10,
                     crossAxisCount: 2),
                 itemBuilder: ((context, index1) {
-                  return Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(gradient: LinearGradient(colors: [Theme.of(context).backgroundColor,])),
-                      child: itemList(IndexNo: index1,IndexNo1: index1+1,));
+                  return ListView(children: [
+                    Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Theme.of(context).primaryColorDark,items[index1].color])),
+                    child: Column(children: [
+                      Container(
+                        width: 80,
+                        height: 70,
+                        decoration: BoxDecoration(image: DecorationImage(image: items[index1].asset)),)
+                    ],),
+                  )
+                  ],);
                 })),
           )
         ],
@@ -131,47 +144,37 @@ class _FavoritesState extends State<Favorites> {
   }
 }
 
-List items = [
-  AssetImage("lib/assets/Snacks.jpg"),
-  AssetImage("lib/assets/sandwich.jpg"),
-  AssetImage("lib/assets/SoftDrink.jpg"),
-  AssetImage("lib/assets/Chicken.jpg"),
-  AssetImage("lib/assets/Snacks.jpg"),
-  AssetImage("lib/assets/sandwich.jpg"),
-  AssetImage("lib/assets/SoftDrink.jpg"),
-  AssetImage("lib/assets/Chicken.jpg"),
+class Required {
+  AssetImage asset;
+  Color color;
+  Required({required this.asset, required this.color});
+}
+
+List<Required> items = [
+  Required(
+    asset: AssetImage("lib/assets/Snacks.jpg"),
+    color: Color(0xFFD79E),
+  ),
+  Required(
+    asset: AssetImage("lib/assets/sandwich.jpg"),
+    color: Color(0xFF9C79),
+  ),
+  Required(
+    asset: AssetImage("lib/assets/sandwich.jpg"),
+    color: Color(0xFF9C79),
+  ),
+  Required(asset: AssetImage("lib/assets/Chicken.jpg"), color: Color(0xFFD79E)),
+  Required(
+    asset: AssetImage("lib/assets/Snacks.jpg"),
+    color: Color(0xFFD79E),
+  ),
+  Required(
+    asset: AssetImage("lib/assets/sandwich.jpg"),
+    color: Color(0xFF9C79),
+  ),
+  Required(
+    asset: AssetImage("lib/assets/sandwich.jpg"),
+    color: Color(0xFF9C79),
+  ),
+  Required(asset: AssetImage("lib/assets/Chicken.jpg"), color: Color(0xFFD79E)),
 ];
-
-class itemList extends StatefulWidget {
-  int IndexNo;
-  int IndexNo1;
-  itemList({Key? key, required this.IndexNo, required this.IndexNo1}) : super(key: key);
-
-  @override
-  State<itemList> createState() => _itemListState();
-}
-
-class _itemListState extends State<itemList> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 70,
-          height: 70,
-          decoration: BoxDecoration(
-              image: DecorationImage(image: items[widget.IndexNo]),
-              borderRadius: BorderRadius.circular(20),
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Theme.of(context).primaryColorDark, Colors.white])),
-        ),
-        Container(
-          width: 30,height: 30,
-          child: Icon(TernavIcons.bold.airpod),
-        )
-      ],
-    );
-  }
-}
