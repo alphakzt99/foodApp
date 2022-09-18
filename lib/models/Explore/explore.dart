@@ -93,6 +93,7 @@ class _ExploreState extends State<Explore> with TickerProviderStateMixin {
               width: 30,
               height: 30,
               decoration: BoxDecoration(
+                color: Theme.of(context).primaryColorLight,
                 border: Border.all(color: Theme.of(context).primaryColor),
                 borderRadius: BorderRadius.circular(10),
                 

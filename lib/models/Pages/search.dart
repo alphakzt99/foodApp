@@ -32,6 +32,8 @@ class _FavoritesState extends State<Favorites> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
+        leadingWidth: 70,
+        toolbarHeight: 60,
         title: Padding(
           padding: EdgeInsets.only(left: size.width * 0.16),
           child: Text(
@@ -41,13 +43,21 @@ class _FavoritesState extends State<Favorites> {
           ),
         ),
         leading: Container(
-          decoration: BoxDecoration(border: Border.all(color: Theme.of(context).primaryColor)),
-          child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.arrow_back_ios_new_outlined,
-                color: Theme.of(context).primaryColor,
-              )),
+          width: 30,
+          height: 30,
+          margin: EdgeInsets.only(left: 20,top: 10,bottom: 10),
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColorLight,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Theme.of(context).primaryColor)),
+          child: Center(
+            child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.arrow_back_ios_new_outlined,
+                  color: Theme.of(context).primaryColor,
+                )),
+          ),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
