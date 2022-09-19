@@ -10,6 +10,7 @@ class Order extends StatefulWidget {
 }
 
 class _OrderState extends State<Order> {
+  var initial = 0;
   ScrollController controller = ScrollController();
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,7 @@ class _OrderState extends State<Order> {
       body: Column(
         children: [
           Container(
+            margin: EdgeInsets.only(left: 20, top: 20),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.1,
             child: RichText(
@@ -66,81 +68,133 @@ class _OrderState extends State<Order> {
                           color: Theme.of(context).primaryColor))
                 ])),
           ),
-          ListView.builder(
-              controller: controller,
-              shrinkWrap: true,
-              itemBuilder: (context, index) => orderList(context)),
+          Expanded(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.8,
+              child: ListView.builder(
+                  itemCount: 7,
+                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                  controller: controller,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        borderOnForeground: true,
+                        elevation: 5,
+                        shadowColor: Theme.of(context).shadowColor,
+                        margin: const EdgeInsets.all(10),
+                        child: Row(children: [
+                          Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20)),
+                                image: DecorationImage(
+                                    image:
+                                        AssetImage("lib/assets/Chicken.jpg"))),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Walgreens",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: font,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "Fresh and Tasty",
+                                style: TextStyle(
+                                    color: Colors.black54, fontFamily: font),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "25 Minutes",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: font,
+                                    fontSize: 16,
+                                    color: Theme.of(context).primaryColorDark),
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(left: 20, right: 20),
+                                width: 25,
+                                height: 25,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Theme.of(context).primaryColor),
+                                    color: Theme.of(context).backgroundColor,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Center(
+                                  child: IconButton(
+                                    splashRadius: 20,
+                                    padding: EdgeInsets.all(0),
+                                    onPressed: () {
+                                      setState(() {
+                                        if (initial == 0) {
+                                          initial = 0;
+                                        }
+                                        else{initial -= 1;}
+                                        
+                                      });
+                                    },
+                                    icon: Icon(
+                                      Icons.add,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                initial.toString(),
+                                style: TextStyle(
+                                    fontFamily: font,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 20),
+                                width: 25,
+                                height: 25,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Theme.of(context).primaryColor),
+                                    color: Theme.of(context).primaryColorLight,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Center(
+                                  child: IconButton(
+                                    splashRadius: 20,
+                                    padding: EdgeInsets.all(0),
+                                    onPressed: () {
+                                      setState(() {
+                                        initial += 1;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      Icons.add,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ]),
+                      )),
+            ),
+          ),
         ],
       ),
     );
   }
-}
-
-Widget orderList(context) {
-  var initial = 0;
-
-  return Card(
-    borderOnForeground: true,
-    elevation: 5,
-    shadowColor: Theme.of(context).shadowColor,
-    margin: const EdgeInsets.all(10),
-    child: Row(children: [
-      Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-            image:
-                DecorationImage(image: AssetImage("lib/assets/Chicken.jpg"))),
-      ),
-      Column(
-        children: [
-          Text("Walgreens"),
-          Text("Fresh and Tasty"),
-          Row(
-            children: [
-              Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColorDark,
-                    borderRadius: BorderRadius.circular(10)),
-                child: IconButton(
-                  onPressed: () {
-                    initial += 1;
-                  },
-                  icon: Icon(
-                    TernavIcons.bold.add,
-                    color: Theme.of(context).backgroundColor,
-                  ),
-                ),
-              ),
-              Text(
-                initial.toString(),
-                style: TextStyle(
-                    fontFamily: font,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold),
-              ),
-              Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColorDark,
-                    borderRadius: BorderRadius.circular(10)),
-                child: IconButton(
-                  onPressed: () {
-                    initial += 1;
-                  },
-                  icon: Icon(
-                    TernavIcons.bold.decrease_cart,
-                    color: Theme.of(context).backgroundColor,
-                  ),
-                ),
-              ),
-            ],
-          )
-        ],
-      )
-    ]),
-  );
 }

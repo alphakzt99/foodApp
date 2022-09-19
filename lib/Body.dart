@@ -136,7 +136,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                                             dragStartBehavior:
                                                 DragStartBehavior.down,
                                             physics:
-                                                const BouncingScrollPhysics(),
+                                                PageScrollPhysics(),
                                             controller: tabcontroller,
                                             children: [
                                               Explore(),

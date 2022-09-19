@@ -45,11 +45,11 @@ class _FavoritesState extends State<Favorites> {
         leading: Container(
           width: 30,
           height: 30,
-          margin: EdgeInsets.only(left: 20,top: 10,bottom: 10),
+          margin: EdgeInsets.only(left: 20, top: 10, bottom: 10),
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColorLight,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Theme.of(context).primaryColor)),
+              color: Theme.of(context).primaryColorLight,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: Theme.of(context).primaryColor)),
           child: Center(
             child: IconButton(
                 onPressed: () {},
@@ -120,33 +120,44 @@ class _FavoritesState extends State<Favorites> {
                 ],
               )),
           Expanded(
-            child: GridView.builder(
-              shrinkWrap: true,
-                padding: const EdgeInsets.only(top: 8, right: 8, bottom: 8),
-                itemCount: 8,
-                controller: controller,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    crossAxisCount: 2),
-                itemBuilder: ((context, index1) {
-                  return ListView(children: [
-                    Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Theme.of(context).primaryColorDark,items[index1].color])),
-                    child: Column(children: [
-                      Container(
-                        width: 80,
-                        height: 70,
-                        decoration: BoxDecoration(image: DecorationImage(image: items[index1].asset)),)
-                    ],),
-                  )
-                  ],);
-                })),
+            child: Container(
+              margin: EdgeInsets.all(10),
+              width: MediaQuery.of(context).size.width,
+              child: GridView.builder(
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.only(top: 8, right: 8, bottom: 8),
+                  itemCount: 8,
+                  controller: controller,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      crossAxisCount: 2),
+                  itemBuilder: ((context, index1) {
+                    return Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                            Theme.of(context).primaryColorDark,
+                            items[index1].color
+                          ])),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 80,
+                            height: 70,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: items[index1].asset)),
+                          )
+                        ],
+                      ),
+                    );
+                  })),
+            ),
           )
         ],
       ),
