@@ -41,7 +41,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
   void initState() {
     scroll();
     super.initState();
-    tabController = TabController(length: 4, vsync: this);
+    tabController = TabController(length: 3, vsync: this);
     _controller = AnimationController(
         duration: const Duration(milliseconds: 200), vsync: this);
     _offsetAnimation =
@@ -160,14 +160,14 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(500),
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
+                      width: MediaQuery.of(context).size.width * 0.6,
                       decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.circular(500)),
                       child: Material(
                           color: widget.barcolor,
                           child: DefaultTabController(
-                            length: 4,
+                            length: 3,
                             initialIndex: 0,
                             child: TabBar(
                               controller: tabController,
@@ -192,10 +192,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                                                         .index ==
                                                     2
                                                 ? widget.selectedColor
-                                                : widget.bottomtabcontroller
-                                                            .index ==
-                                                        3
-                                                    ? widget.selectedColor
+                                                
                                                     : widget.unselectedColor),
                               ),
                               tabs: [
@@ -221,17 +218,7 @@ class _BottomBarState extends State<BottomBar> with TickerProviderStateMixin {
                                     ),
                                   ),
                                 ),
-                                Tab(
-                                  height: 45,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(top: 8.0),
-                                    child: Icon(
-                                      TernavIcons.bold.cart,
-                                      color: widget.unselectedColor
-                                          
-                                    ),
-                                  ),
-                                ),
+                              
                                 Tab(
                                   iconMargin: EdgeInsets.only(bottom: 0),
                                   height: 45,

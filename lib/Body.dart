@@ -22,11 +22,11 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
   late TabController tabcontroller;
   @override
   void initState() {
-    tabcontroller = TabController(length: 4, vsync: this);
+    tabcontroller = TabController(length: 3, vsync: this);
     CurrentPage = 0;
     tabcontroller.animation!.addListener(() {
       final value = tabcontroller.animation!.value.round();
-      if ( value != CurrentPage && mounted) {
+      if (value != CurrentPage && mounted) {
         changePage(value);
       }
     });
@@ -135,14 +135,12 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                                         child: TabBarView(
                                             dragStartBehavior:
                                                 DragStartBehavior.down,
-                                            physics:
-                                                PageScrollPhysics(),
+                                            physics: PageScrollPhysics(),
                                             controller: tabcontroller,
                                             children: [
                                               Explore(),
                                               Favorites(),
-                                              Order(),
-                                              Payment()
+                                              Profile()
                                             ]),
                                         end: 2,
                                         start: 10,

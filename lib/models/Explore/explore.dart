@@ -86,7 +86,7 @@ class _ExploreState extends State<Explore> with TickerProviderStateMixin {
         elevation: 0,
         backgroundColor: Colors.white,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
+          padding: const EdgeInsets.only(left: 25, top: 10, bottom: 10),
           child: InkWell(
             onTap: () => Drawer(),
             child: Container(
@@ -96,7 +96,6 @@ class _ExploreState extends State<Explore> with TickerProviderStateMixin {
                 color: Theme.of(context).primaryColorLight,
                 border: Border.all(color: Theme.of(context).primaryColor),
                 borderRadius: BorderRadius.circular(10),
-                
               ),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -137,11 +136,24 @@ class _ExploreState extends State<Explore> with TickerProviderStateMixin {
           ),
         ),
         actions: [
-          Padding(
-            padding: EdgeInsets.only(left: 50),
-            child: IconButton(
-              onPressed: (){},
-              icon: Icon(TernavIcons.bold.bell_2),color: Theme.of(context).primaryColor,),
+          Container(
+            margin: EdgeInsets.only(top: 10, right: 15, bottom: 5),
+            width: 50,
+            decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                border: Border.all(color: Theme.of(context).primaryColor),
+                borderRadius: BorderRadius.circular(10)),
+            child: Center(
+              child: IconButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Order()));
+                },
+                icon: Icon(TernavIcons.bold.cart),
+                color: Theme.of(context).backgroundColor,
+              ),
+            ),
           )
         ],
       ),
@@ -250,7 +262,7 @@ class _ExploreState extends State<Explore> with TickerProviderStateMixin {
                                   border: Border.all(
                                       color: Theme.of(context).backgroundColor),
                                   borderRadius: BorderRadius.circular(20),
-                                  color: Theme.of(context).backgroundColor),
+                                  color: Colors.white),
                               child: Tab(
                                 icon: Icon(
                                   items[0],
@@ -341,10 +353,14 @@ class _ExploreState extends State<Explore> with TickerProviderStateMixin {
                 height: 30,
               ),
               Scroll(controller: _controller),
-               Container(
-                padding: EdgeInsets.only(left: 10,right: 10),
-                color: Theme.of(context).backgroundColor,
-                child: exploreList(width: size.width* 0.8,height: size.height * 0.2,size: size.width,))
+              Container(
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  color: Theme.of(context).backgroundColor,
+                  child: exploreList(
+                    width: size.width * 0.8,
+                    height: size.height * 0.2,
+                    size: size.width,
+                  ))
             ]),
           ),
         ),

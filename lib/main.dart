@@ -13,8 +13,9 @@ class FoodApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: "Hmar Kya Mal",
         theme: ThemeData(
+          focusColor: Colors.white54,
           // ignore: prefer_const_constructors
-          backgroundColor: Color(0xFFEAEFEF),
+          backgroundColor: Colors.white,
           primaryColorLight: Color(0xFFFFC529),
           primaryColor: Color(0xFF272D2F),
           primaryColorDark: Color(0xFFFE724C),

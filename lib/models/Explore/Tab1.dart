@@ -54,7 +54,7 @@ class _Tab2State extends State<Tab2> {
     return Container(
       margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-          color: Theme.of(context).backgroundColor,
+          color: Colors.white,
           boxShadow: [
             BoxShadow(
                 offset: Offset(5, 5),
