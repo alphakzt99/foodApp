@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_swipe_action_cell/core/cell.dart';
+import 'package:flutter_swipe_action_cell/core/controller.dart';
 import 'package:food_app/main.dart';
 import 'package:food_app/my_flutter_app_icons.dart';
 import 'package:ternav_icons/ternav_icons.dart';
@@ -12,8 +15,15 @@ class Order extends StatefulWidget {
 
 class _OrderState extends State<Order> {
   var initial = 0;
-
+  late SwipeActionController _controller;
   ScrollController controller = ScrollController();
+  @override
+  void initState() {
+    _controller = SwipeActionController();
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -74,7 +84,6 @@ class _OrderState extends State<Order> {
               ])),
         ),
         Expanded(
-          flex: 1,
           child: Stack(children: [
             Positioned(
               top: 0,
@@ -82,97 +91,223 @@ class _OrderState extends State<Order> {
                 width: size.width,
                 height: size.height * 0.5,
                 child: ListView.builder(
-                    itemCount: 7,
-                    padding: EdgeInsets.only(bottom: 10),
+                    itemCount: items.length,
+                    padding: EdgeInsets.only(bottom: 5,),
                     controller: controller,
                     shrinkWrap: true,
-                    itemBuilder: (context, index) => Container(
-                          color: Theme.of(context).backgroundColor,
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          height: MediaQuery.of(context).size.height * 0.12,
-                          margin: const EdgeInsets.only(
-                              left: 10, right: 10, top: 10),
-                          child: Row(children: [
-                            Container(
-                              margin: EdgeInsets.all(5),
-                              width: 80,
-                              height: 80,
-                              decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                        offset: Offset(5, 5),
-                                        blurRadius: 5,
-                                        color: Theme.of(context).shadowColor)
+                    itemBuilder: (context, index) => Padding(
+                      padding: EdgeInsets.only(bottom: 5,top: 5,left: 15),
+                      child: SwipeActionCell(
+               
+                            key: ValueKey(index),
+                            trailingActions: [
+                              SwipeAction(
+                                  widthSpace: 80,
+                                  backgroundRadius: 20,
+                                  color: Theme.of(context).primaryColorDark,
+                                  content: Container(
+                       
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(
+                                      CupertinoIcons.delete,
+                                      color: Theme.of(context).backgroundColor,
+                                    ),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(25)),
+                                  ),
+                                  nestedAction: SwipeNestedAction(
+                                      content: Container(
+                                          decoration: BoxDecoration(
+                                              color: Theme.of(context)
+                                                  .primaryColorDark),
+                                          width: size.width * 0.2,
+                                          height: size.height * 0.12,
+                                          child: OverflowBox(
+                                            maxWidth: double.infinity,
+                                            child: OutlinedButton(
+                                              style: ButtonStyle(side: MaterialStateProperty.all(BorderSide(color: Colors.transparent))),
+                                                onPressed: () {
+                                                  items.removeAt(index);
+                                                  setState(() {});
+                                                },
+                                                child: Row(
+                                                  children: [
+                                                    Icon(
+                                                      CupertinoIcons.delete,
+                                                      color: Theme.of(context)
+                                                          .backgroundColor,
+                                                    ),
+                                                    Text(
+                                                      " Delete",
+                                                      style: TextStyle(
+                                                          color: Theme.of(context)
+                                                              .backgroundColor,
+                                                          fontFamily: font,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 20),
+                                                    )
+                                                  ],
+                                                )),
+                                          ))),
+                                  onTap: (CompletionHandler handler) async {
+                                    await handler(true);
+                                    items.removeAt(index);
+                                    setState(() {});
+                                  }),
+                              SwipeAction(
+                                  backgroundRadius: 20,
+                                  color: Theme.of(context).primaryColor,
+                                  content: Container(
+                                      width: 50,
+                                      height: 50,
+                                      child: Icon(
+                                        Icons.shopping_cart_outlined,
+                                        color: Theme.of(context).backgroundColor,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(25))),
+                                  nestedAction: SwipeNestedAction(
+                                      content: Container(
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  Theme.of(context).primaryColor),
+                                          width: size.width * 0.2,
+                                          height: size.height * 0.12,
+                                          child: OverflowBox(
+                                              maxWidth: double.infinity,
+                                              child: Row(
+                                                children: [
+                                                  IconButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          initial -= 1;
+                                                        });
+                                                      },
+                                                      icon: Icon(
+                                                        CupertinoIcons.minus,
+                                                        color: Theme.of(context)
+                                                            .backgroundColor,
+                                                      )),
+                                                  Text(
+                                                    initial.toString(),
+                                                    style: TextStyle(
+                                                        color: Theme.of(context)
+                                                            .backgroundColor,
+                                                        fontFamily: font,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20),
+                                                  ),
+                                                  IconButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          initial += 1;
+                                                        });
+                                                      },
+                                                      icon: Icon(
+                                                        CupertinoIcons.add,
+                                                        color: Theme.of(context)
+                                                            .backgroundColor,
+                                                      ))
+                                                ],
+                                              )))),
+                                 onTap: (CompletionHandler handler1){
+                                  setState(() {
+                                    
+                                  });
+                                 })
+                            ],
+                            child: Container(
+                              color: Theme.of(context).backgroundColor,
+                              width: MediaQuery.of(context).size.width * 0.9,
+                              height: MediaQuery.of(context).size.height * 0.12,
+                             
+                              child: Row(children: [
+                                Container(
+                                  margin: EdgeInsets.all(5),
+                                  width: 80,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                            offset: Offset(5, 5),
+                                            blurRadius: 5,
+                                            color: Theme.of(context).shadowColor)
+                                      ],
+                                      borderRadius: BorderRadius.circular(20),
+                                      image:
+                                          DecorationImage(image: items[index])),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 0),
+                                  child: Center(
+                                    child: Text(
+                                      "${initial.toString()}x",
+                                      style: TextStyle(
+                                          color: Theme.of(context).primaryColor,
+                                          fontFamily: font,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Walgreens",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontFamily: font,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "25 Minutes",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: font,
+                                          fontSize: 16,
+                                          color:
+                                              Theme.of(context).primaryColorDark),
+                                    )
                                   ],
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          "lib/assets/Chicken.jpg"))),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 0),
-                              child: Center(
-                                child: Text(
-                                  "${initial.toString()}x",
-                                  style: TextStyle(
-                                      color: Theme.of(context).primaryColor,
-                                      fontFamily: font,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
                                 ),
-                              ),
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Walgreens",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontFamily: font,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "25 Minutes",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: font,
-                                      fontSize: 16,
-                                      color:
-                                          Theme.of(context).primaryColorDark),
+                                Padding(
+                                  padding:
+                                      EdgeInsets.only(left: size.width * 0.1),
+                                  child: RichText(
+                                      textAlign: TextAlign.center,
+                                      text: TextSpan(children: [
+                                        TextSpan(
+                                            text: "\$",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                fontFamily: font,
+                                                fontWeight: FontWeight.bold,
+                                                color: Theme.of(context)
+                                                    .primaryColor)),
+                                        TextSpan(
+                                            text: "100",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                fontFamily: font,
+                                                fontWeight: FontWeight.bold,
+                                                color: Theme.of(context)
+                                                    .primaryColor)),
+                                      ])),
                                 )
-                              ],
+                              ]),
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(left: size.width * 0.1),
-                              child: RichText(
-                                  textAlign: TextAlign.center,
-                                  text: TextSpan(children: [
-                                    TextSpan(
-                                        text: "\$",
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontFamily: font,
-                                            fontWeight: FontWeight.bold,
-                                            color: Theme.of(context)
-                                                .primaryColor)),
-                                    TextSpan(
-                                        text: "100",
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontFamily: font,
-                                            fontWeight: FontWeight.bold,
-                                            color: Theme.of(context)
-                                                .primaryColor)),
-                                  ])),
-                            )
-                          ]),
-                        )),
+                          ),
+                    )),
               ),
             ),
             Positioned(
@@ -317,3 +452,14 @@ class _OrderState extends State<Order> {
     );
   }
 }
+
+List<AssetImage> items = [
+  AssetImage("lib/assets/Snacks.jpg"),
+  AssetImage("lib/assets/Chicken.jpg"),
+  AssetImage("lib/assets/Snacks.jpg"),
+  AssetImage("lib/assets/Chicken.jpg"),
+  AssetImage("lib/assets/Snacks.jpg"),
+  AssetImage("lib/assets/Chicken.jpg"),
+  AssetImage("lib/assets/Snacks.jpg"),
+  AssetImage("lib/assets/Chicken.jpg"),
+];

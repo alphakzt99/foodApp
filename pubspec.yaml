@@ -39,6 +39,8 @@ dependencies:
   sqflite:
   path:
   ternav_icons: ^1.0.0
+  flutter_swipe_action_cell: ^3.0.4
+  icon_forest: ^1.1.8
 
 dev_dependencies:
   flutter_test:
