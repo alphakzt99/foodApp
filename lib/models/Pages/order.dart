@@ -14,7 +14,7 @@ class Order extends StatefulWidget {
 }
 
 class _OrderState extends State<Order> {
-  var initial = 0;
+  var initial = 1;
   late SwipeActionController _controller;
   ScrollController controller = ScrollController();
   @override
@@ -92,88 +92,35 @@ class _OrderState extends State<Order> {
                 height: size.height * 0.5,
                 child: ListView.builder(
                     itemCount: items.length,
-                    padding: EdgeInsets.only(bottom: 5,),
+                    padding: EdgeInsets.only(
+                      bottom: 5,
+                    ),
                     controller: controller,
                     shrinkWrap: true,
                     itemBuilder: (context, index) => Padding(
-                      padding: EdgeInsets.only(bottom: 5,top: 5,left: 15),
-                      child: SwipeActionCell(
-               
+                          padding: EdgeInsets.only(bottom: 5, top: 5, left: 15),
+                          child: SwipeActionCell(
                             key: ValueKey(index),
                             trailingActions: [
-                              SwipeAction(
-                                  widthSpace: 80,
-                                  backgroundRadius: 20,
-                                  color: Theme.of(context).primaryColorDark,
-                                  content: Container(
-                       
-                                    width: 50,
-                                    height: 50,
-                                    child: Icon(
-                                      CupertinoIcons.delete,
-                                      color: Theme.of(context).backgroundColor,
-                                    ),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(25)),
-                                  ),
-                                  nestedAction: SwipeNestedAction(
-                                      content: Container(
-                                          decoration: BoxDecoration(
-                                              color: Theme.of(context)
-                                                  .primaryColorDark),
-                                          width: size.width * 0.2,
-                                          height: size.height * 0.12,
-                                          child: OverflowBox(
-                                            maxWidth: double.infinity,
-                                            child: OutlinedButton(
-                                              style: ButtonStyle(side: MaterialStateProperty.all(BorderSide(color: Colors.transparent))),
-                                                onPressed: () {
-                                                  items.removeAt(index);
-                                                  setState(() {});
-                                                },
-                                                child: Row(
-                                                  children: [
-                                                    Icon(
-                                                      CupertinoIcons.delete,
-                                                      color: Theme.of(context)
-                                                          .backgroundColor,
-                                                    ),
-                                                    Text(
-                                                      " Delete",
-                                                      style: TextStyle(
-                                                          color: Theme.of(context)
-                                                              .backgroundColor,
-                                                          fontFamily: font,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 20),
-                                                    )
-                                                  ],
-                                                )),
-                                          ))),
-                                  onTap: (CompletionHandler handler) async {
-                                    await handler(true);
-                                    items.removeAt(index);
-                                    setState(() {});
-                                  }),
                               SwipeAction(
                                   backgroundRadius: 20,
                                   color: Theme.of(context).primaryColor,
                                   content: Container(
                                       width: 50,
                                       height: 50,
-                                      child: Icon(
-                                        Icons.shopping_cart_outlined,
-                                        color: Theme.of(context).backgroundColor,
-                                      ),
                                       decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(25))),
+                                              BorderRadius.circular(25)),
+                                      child: Icon(
+                                        Icons.shopping_cart_outlined,
+                                        color:
+                                            Theme.of(context).backgroundColor,
+                                      )),
                                   nestedAction: SwipeNestedAction(
                                       content: Container(
                                           decoration: BoxDecoration(
-                                              color:
-                                                  Theme.of(context).primaryColor),
+                                              color: Theme.of(context)
+                                                  .primaryColor),
                                           width: size.width * 0.2,
                                           height: size.height * 0.12,
                                           child: OverflowBox(
@@ -181,8 +128,17 @@ class _OrderState extends State<Order> {
                                               child: Row(
                                                 children: [
                                                   IconButton(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              vertical: 8,
+                                                              horizontal: 16),
                                                       onPressed: () {
-                                                        setState(() {
+                                                        setState((){
+                                                         if (initial == 0) {
+                                                           items.removeAt(
+                                                                index);
+                                                            initial = 1;
+                                                          }
                                                           initial -= 1;
                                                         });
                                                       },
@@ -202,6 +158,10 @@ class _OrderState extends State<Order> {
                                                         fontSize: 20),
                                                   ),
                                                   IconButton(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              vertical: 8,
+                                                              horizontal: 16),
                                                       onPressed: () {
                                                         setState(() {
                                                           initial += 1;
@@ -214,17 +174,71 @@ class _OrderState extends State<Order> {
                                                       ))
                                                 ],
                                               )))),
-                                 onTap: (CompletionHandler handler1){
-                                  setState(() {
-                                    
-                                  });
-                                 })
+                                  onTap: (CompletionHandler handler1) {}),
+                              SwipeAction(
+                                  backgroundRadius: 20,
+                                  color: Theme.of(context).primaryColorDark,
+                                  content: Container(
+                                    width: 50,
+                                    height: 50,
+                                    child: Icon(
+                                      CupertinoIcons.delete,
+                                      color: Theme.of(context).backgroundColor,
+                                    ),
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(25)),
+                                  ),
+                                  nestedAction: SwipeNestedAction(
+                                      content: Container(
+                                          decoration: BoxDecoration(
+                                              color: Theme.of(context)
+                                                  .primaryColorDark),
+                                          width: size.width * 0.2,
+                                          height: size.height * 0.12,
+                                          child: OverflowBox(
+                                            maxWidth: double.infinity,
+                                            child: OutlinedButton(
+                                                style: ButtonStyle(
+                                                    side: MaterialStateProperty
+                                                        .all(BorderSide(
+                                                            color: Colors
+                                                                .transparent))),
+                                                onPressed: () {
+                                                  items.removeAt(index);
+                                                  setState(() {});
+                                                },
+                                                child: Row(
+                                                  children: [
+                                                    Icon(
+                                                      CupertinoIcons.delete,
+                                                      color: Theme.of(context)
+                                                          .backgroundColor,
+                                                    ),
+                                                    Text(
+                                                      " Delete",
+                                                      style: TextStyle(
+                                                          color: Theme.of(
+                                                                  context)
+                                                              .backgroundColor,
+                                                          fontFamily: font,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 20),
+                                                    )
+                                                  ],
+                                                )),
+                                          ))),
+                                  onTap: (CompletionHandler handler) async {
+                                    await handler(true);
+                                    items.removeAt(index);
+                                    setState(() {});
+                                  }),
                             ],
                             child: Container(
                               color: Theme.of(context).backgroundColor,
                               width: MediaQuery.of(context).size.width * 0.9,
                               height: MediaQuery.of(context).size.height * 0.12,
-                             
                               child: Row(children: [
                                 Container(
                                   margin: EdgeInsets.all(5),
@@ -235,7 +249,8 @@ class _OrderState extends State<Order> {
                                         BoxShadow(
                                             offset: Offset(5, 5),
                                             blurRadius: 5,
-                                            color: Theme.of(context).shadowColor)
+                                            color:
+                                                Theme.of(context).shadowColor)
                                       ],
                                       borderRadius: BorderRadius.circular(20),
                                       image:
@@ -275,8 +290,8 @@ class _OrderState extends State<Order> {
                                           fontWeight: FontWeight.bold,
                                           fontFamily: font,
                                           fontSize: 16,
-                                          color:
-                                              Theme.of(context).primaryColorDark),
+                                          color: Theme.of(context)
+                                              .primaryColorDark),
                                     )
                                   ],
                                 ),
@@ -307,7 +322,7 @@ class _OrderState extends State<Order> {
                               ]),
                             ),
                           ),
-                    )),
+                        )),
               ),
             ),
             Positioned(

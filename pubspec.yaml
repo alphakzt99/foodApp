@@ -36,8 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_lints: ^2.0.1
   glassmorphism: ^3.0.0 
-  sqflite:
-  path:
   ternav_icons: ^1.0.0
   flutter_swipe_action_cell: ^3.0.4
   icon_forest: ^1.1.8
